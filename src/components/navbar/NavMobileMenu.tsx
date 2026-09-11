@@ -105,7 +105,7 @@ export const NavMobileMenu: React.FC<NavMobileMenuProps> = ({ items }) => {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="w-full h-[48px] rounded-full border border-brand-dark font-manrope font-bold text-[16px] text-brand-dark transition-all duration-150 hover:bg-black/5 active:scale-[0.98]"
+              className="w-full h-[48px] rounded-full bg-[#010205] font-manrope font-bold text-[16px] text-white transition-all duration-150 hover:bg-[#1a1d24] active:scale-[0.98]"
             >
               Get started
             </button>
