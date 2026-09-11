@@ -43,29 +43,27 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
       {/* Frame 427321481: CTAs row (gap-14 / 56px, height: 55.98px on desktop) */}
       <div
         data-name="Frame 427321481"
-        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-14 min-h-[55.98px] sm:h-[55.98px] leading-normal"
+        className="flex items-center gap-3.5 min-[380px]:gap-5 sm:gap-14 min-h-[48px] sm:h-[55.98px] leading-normal"
       >
-        {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px) */}
+        {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px on desktop) */}
         <button
           type="button"
           data-name="Schedule Call Button"
           onClick={onScheduleCall}
-          className="flex items-center justify-center gap-[42px] py-4 px-8 bg-[#010205] text-[#ffffff] text-center rounded-[70px] h-[55.98px] min-w-[231.59px] leading-normal cursor-pointer shrink-0"
+          className="flex items-center justify-center gap-3 sm:gap-[42px] py-3 sm:py-4 px-4 min-[380px]:px-5 sm:px-8 bg-[#010205] text-[#ffffff] text-center rounded-[70px] h-[48px] sm:h-[55.98px] min-w-[160px] min-[380px]:min-w-[180px] sm:min-w-[231.59px] leading-normal cursor-pointer shrink-0"
         >
-          <span className="text-[#ffffff] text-base font-bold text-center leading-snug whitespace-nowrap">
+          <span className="text-[#ffffff] text-[14px] sm:text-base font-bold text-center leading-snug whitespace-nowrap">
             Schedule Call
           </span>
 
           {/* arrow-right icon from pen.dev node QxfZ0 */}
           <svg
             data-name="arrow-right"
-            width="24"
-            height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-            className="shrink-0"
+            className="w-5 h-5 sm:w-6 sm:h-6 shrink-0"
           >
             <path
               d="M5 12H19"
@@ -89,7 +87,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
           type="button"
           data-name="View Case Study"
           onClick={onViewCaseStudy}
-          className="text-[#010205] font-semibold text-center h-[28.8px] leading-relaxed bg-transparent cursor-pointer shrink-0 whitespace-nowrap"
+          className="text-[#010205] text-[14px] sm:text-base font-semibold text-center h-[28.8px] leading-relaxed bg-transparent cursor-pointer shrink-0 whitespace-nowrap"
         >
           View Case Study
         </button>
