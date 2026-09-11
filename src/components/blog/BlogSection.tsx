@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BlogHeader } from './BlogHeader';
 import { BlogCard, BlogPostItem } from './BlogCard';
 
@@ -10,7 +10,7 @@ const BLOG_POSTS: BlogPostItem[] = [
     title: 'How a Digital Marketing Agency Can Boost Your Business',
     excerpt:
       'We are the top digital marketing agency for branding corp. We offer a full rang engine ....',
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'trends-strategies',
@@ -51,6 +51,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   onSeeMore,
   onReadPost,
 }) => {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
   return (
     <section
       id="blog"
@@ -71,7 +73,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               key={post.id}
               post={{
                 ...post,
-                onReadMore: () => onReadPost?.(post.id),
+                isActive: activeId === post.id,
+                onReadMore: () => {
+                  setActiveId((prev) => (prev === post.id ? null : post.id));
+                  onReadPost?.(post.id);
+                },
               }}
             />
           ))}

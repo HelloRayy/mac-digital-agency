@@ -63,7 +63,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className = '' }) => {
           className={`w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] flex items-center justify-center shrink-0 transition-all duration-200 cursor-pointer active:scale-[0.98] group/arrow ${
             post.isActive
               ? 'bg-[#010205] text-white hover:bg-[#1a1d24]'
-              : 'border border-[#010205] text-[#010205] hover:bg-[#010205] hover:text-white'
+              : 'bg-white border border-[#010205] text-[#010205] hover:bg-[#010205] hover:text-white'
           }`}
         >
           <ArrowRight className="w-6 h-6 stroke-[2] transition-transform duration-200 group-hover/arrow:translate-x-1" />
