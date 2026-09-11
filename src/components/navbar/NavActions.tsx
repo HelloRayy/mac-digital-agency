@@ -27,11 +27,11 @@ export const NavActions: React.FC<NavActionsProps> = ({
         type="button"
         data-name="Frame 427320691"
         onClick={onGetStarted}
-        className="w-[156px] h-[50px] rounded-[50px] border border-[#010205] py-[13px] px-[16px] flex items-center justify-center bg-transparent cursor-pointer"
+        className="w-[156px] h-[50px] rounded-[50px] border border-[#010205] py-[13px] px-[16px] flex items-center justify-center bg-transparent cursor-pointer transition-all duration-150 hover:bg-black/5 active:scale-[0.98]"
       >
         <span
           data-name="Get started"
-          className="font-manrope font-bold text-[16px] text-[#010205] tracking-[-0.32px] leading-[1.4]"
+          className="font-manrope font-bold text-[16px] text-[#010205] tracking-[-0.32px] leading-[1.4] transition-all"
         >
           Get started
         </span>
@@ -43,7 +43,7 @@ export const NavActions: React.FC<NavActionsProps> = ({
         data-name="Frame 427320692"
         onClick={onNotificationClick}
         aria-label="Notifications"
-        className="w-[50px] h-[50px] rounded-[50px] bg-[#010205] flex items-center justify-center cursor-pointer"
+        className="w-[50px] h-[50px] rounded-[50px] bg-[#010205] flex items-center justify-center cursor-pointer transition-all duration-150 hover:bg-[#1a1d24] active:scale-[0.98]"
       >
         {/* Exact bell vector geometry from pen.dev (node g7p4Bi: tf3aq & H9DvqJ) */}
         <svg
