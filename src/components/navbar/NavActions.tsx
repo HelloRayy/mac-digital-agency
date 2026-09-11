@@ -18,9 +18,9 @@ export const NavActions: React.FC<NavActionsProps> = ({
       <button
         type="button"
         onClick={onGetStarted}
-        className="w-[156px] h-[50px] rounded-full border border-brand-dark flex items-center justify-center transition-all duration-200 hover:bg-brand-dark hover:text-white active:scale-95 group cursor-pointer"
+        className="w-[156px] h-[50px] rounded-full border border-brand-dark flex items-center justify-center bg-transparent cursor-pointer"
       >
-        <span className="font-manrope font-bold text-[16px] text-brand-dark group-hover:text-white tracking-[-0.32px] leading-[1.4] transition-colors duration-200">
+        <span className="font-manrope font-bold text-[16px] text-brand-dark tracking-[-0.32px] leading-[1.4]">
           Get started
         </span>
       </button>
@@ -30,7 +30,7 @@ export const NavActions: React.FC<NavActionsProps> = ({
         type="button"
         onClick={onNotificationClick}
         aria-label="Notifications"
-        className="w-[50px] h-[50px] rounded-full bg-brand-dark flex items-center justify-center transition-all duration-200 hover:bg-[#191f33] hover:scale-105 active:scale-95 cursor-pointer"
+        className="w-[50px] h-[50px] rounded-full bg-brand-dark flex items-center justify-center cursor-pointer"
       >
         <Bell size={20} className="text-white" strokeWidth={2} />
       </button>

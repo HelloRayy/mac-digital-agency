@@ -6,10 +6,10 @@ interface NavLogoProps {
 
 export const NavLogo: React.FC<NavLogoProps> = ({ className = '' }) => {
   return (
-    <a href="/" className={`inline-flex items-center gap-2 select-none group ${className}`}>
+    <a href="/" className={`inline-flex items-center gap-2 select-none ${className}`}>
       {/* Exact shape geometry from pen.dev: 33x33 with [3px, 3px, 53px, 3px] corner radius */}
       <div
-        className="relative w-[33px] h-[33px] bg-brand-lime flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105"
+        className="relative w-[33px] h-[33px] bg-brand-lime flex items-center justify-center shrink-0"
         style={{ borderRadius: '3px 3px 53px 3px' }}
       >
         {/* Inner square: 14x14 with [3px, 3px, 53px, 3px] corner radius */}

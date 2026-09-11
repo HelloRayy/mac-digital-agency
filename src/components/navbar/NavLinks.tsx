@@ -21,10 +21,10 @@ export const NavLinks: React.FC<NavLinksProps> = ({
   return (
     <ul className={`flex items-center gap-[33px] ${className}`}>
       {items.map((item) => (
-        <li key={item.label} className="relative group">
+        <li key={item.label} className="relative">
           <a
             href={item.href}
-            className="inline-flex items-center gap-[7px] text-[14px] font-semibold text-brand-text hover:text-black transition-colors duration-150 py-1"
+            className="inline-flex items-center gap-[7px] text-[14px] font-semibold text-brand-text py-1"
           >
             <span>{item.label}</span>
             {item.hasDropdown && (
@@ -34,7 +34,6 @@ export const NavLinks: React.FC<NavLinksProps> = ({
                 viewBox="0 0 10 5"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="transition-transform duration-200 group-hover:translate-y-0.5"
                 aria-hidden="true"
               >
                 <path

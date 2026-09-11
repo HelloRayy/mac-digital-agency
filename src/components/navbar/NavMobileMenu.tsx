@@ -25,21 +25,21 @@ export const NavMobileMenu: React.FC<NavMobileMenuProps> = ({ items }) => {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle Menu"
-        className="w-[42px] h-[42px] rounded-full border border-brand-dark flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors cursor-pointer"
+        className="w-[42px] h-[42px] rounded-full border border-brand-dark flex items-center justify-center text-brand-dark cursor-pointer"
       >
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-xl px-6 py-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+        <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg px-6 py-6 flex flex-col gap-4 z-50">
           <ul className="flex flex-col gap-4">
             {items.map((item) => (
               <li key={item.label}>
                 <a
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between text-[16px] font-semibold text-brand-text hover:text-brand-lime transition-colors py-2 border-b border-gray-100"
+                  className="flex items-center justify-between text-[16px] font-semibold text-brand-text py-2 border-b border-gray-100"
                 >
                   <span>{item.label}</span>
                   {item.hasDropdown && (
@@ -62,7 +62,7 @@ export const NavMobileMenu: React.FC<NavMobileMenuProps> = ({ items }) => {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="w-full h-[48px] rounded-full border border-brand-dark font-manrope font-bold text-[16px] text-brand-dark hover:bg-brand-dark hover:text-white transition-colors"
+              className="w-full h-[48px] rounded-full border border-brand-dark font-manrope font-bold text-[16px] text-brand-dark"
             >
               Get started
             </button>
