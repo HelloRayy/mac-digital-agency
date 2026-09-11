@@ -64,7 +64,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
       {/* Desktop - 16: Inner White Rounded Card */}
       <div
         data-name="Desktop - 16"
-        className="max-w-[1408px] mx-auto bg-white rounded-[28px] py-14 sm:py-16 lg:py-[66px] px-6 sm:px-12 lg:px-[80px] flex flex-col lg:flex-row items-start justify-between gap-12 sm:gap-16 lg:gap-[90px]"
+        className="max-w-[1408px] mx-auto bg-white rounded-[28px] py-14 sm:py-16 lg:py-[66px] px-6 sm:px-12 lg:px-[80px] flex flex-col lg:flex-row items-start justify-between gap-12 sm:gap-16 lg:gap-[90px] lg:min-h-[632px] transition-all duration-300"
       >
         {/* Left Column: Header + Actions */}
         <FaqHeader
