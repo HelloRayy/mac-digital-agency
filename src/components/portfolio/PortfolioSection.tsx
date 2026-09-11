@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { PortfolioTabs } from './PortfolioTabs';
 import { PortfolioCard, ProjectItem } from './PortfolioCard';
 
@@ -8,109 +7,92 @@ interface PortfolioSectionProps {
   onSeeDetails?: () => void;
 }
 
-const PORTFOLIO_DATA: Record<string, ProjectItem[]> = {
-  'all': [
-    {
-      id: 'details-action',
-      type: 'action',
-      actionText: 'See Details',
-      imageUrl: '/images/portfolio-dribbble-shot.jpg',
-    },
-    {
-      id: 'ai-wave',
-      type: 'project',
-      companyYear: 'Ai Corporation. 2023',
-      title: 'Ai Wave - Ai Chatbot Mobile App',
-      imageUrl: '/images/ai-wave-app.jpg',
-    },
-    {
-      id: 'app-lancer',
-      type: 'project',
-      companyYear: 'Lancer Corporation. 2023',
-      title: 'App Lancer - Freelance Mobile App',
-      imageUrl: '/images/app-lancer-ui.jpg',
-    },
-    {
-      id: 'finflow-growth',
-      type: 'project',
-      companyYear: 'FinFlow Corp. 2024',
-      title: 'FinFlow - Fintech Analytics Dashboard',
-      imageUrl: '/images/hero-laptop-work.jpg',
-    },
-    {
-      id: 'zenith-brand',
-      type: 'project',
-      companyYear: 'Zenith Studio. 2024',
-      title: 'Zenith - Creative Brand Architecture',
-      imageUrl: '/images/hero-creative-arch.jpg',
-    },
-  ],
-  'ui-ux': [
-    {
-      id: 'details-action',
-      type: 'action',
-      actionText: 'See Details',
-      imageUrl: '/images/portfolio-dribbble-shot.jpg',
-    },
-    {
-      id: 'ai-wave',
-      type: 'project',
-      companyYear: 'Ai Corporation. 2023',
-      title: 'Ai Wave - Ai Chatbot Mobile App',
-      imageUrl: '/images/ai-wave-app.jpg',
-    },
-    {
-      id: 'app-lancer',
-      type: 'project',
-      companyYear: 'Lancer Corporation. 2023',
-      title: 'App Lancer - Freelance Mobile App',
-      imageUrl: '/images/app-lancer-ui.jpg',
-    },
-  ],
-  'digital-marketing': [
-    {
-      id: 'details-action-marketing',
-      type: 'action',
-      actionText: 'See Details',
-      imageUrl: '/images/hero-laptop-work.jpg',
-    },
-    {
-      id: 'hyperion-seo',
-      type: 'project',
-      companyYear: 'Hyperion Media. 2024',
-      title: 'Hyperion - 300% Organic Traffic Surge',
-      imageUrl: '/images/portfolio-dribbble-shot.jpg',
-    },
-    {
-      id: 'basecamp-ads',
-      type: 'project',
-      companyYear: 'Basecamp Corp. 2023',
-      title: 'Basecamp - Omnichannel Paid Funnel',
-      imageUrl: '/images/ai-wave-app.jpg',
-    },
-  ],
-  'branding': [
-    {
-      id: 'details-action-branding',
-      type: 'action',
-      actionText: 'See Details',
-      imageUrl: '/images/hero-creative-arch.jpg',
-    },
-    {
-      id: 'zenith-identity',
-      type: 'project',
-      companyYear: 'Zenith Corp. 2024',
-      title: 'Zenith - Visual Identity & Design System',
-      imageUrl: '/images/app-lancer-ui.jpg',
-    },
-    {
-      id: 'finflow-rebrand',
-      type: 'project',
-      companyYear: 'FinFlow Inc. 2023',
-      title: 'FinFlow - Global Modern Brand Elevation',
-      imageUrl: '/images/hero-laptop-work.jpg',
-    },
-  ],
+interface CategorizedProjectItem extends ProjectItem {
+  category: 'ui-ux' | 'digital-marketing' | 'branding';
+}
+
+const ALL_PROJECTS: CategorizedProjectItem[] = [
+  // 1. UI/UX Design Group
+  {
+    id: 'details-action-uiux',
+    type: 'action',
+    actionText: 'See Details',
+    imageUrl: '/images/portfolio-dribbble-shot.jpg',
+    category: 'ui-ux',
+  },
+  {
+    id: 'ai-wave',
+    type: 'project',
+    companyYear: 'Ai Corporation. 2023',
+    title: 'Ai Wave - Ai Chatbot Mobile App',
+    imageUrl: '/images/ai-wave-app.jpg',
+    category: 'ui-ux',
+  },
+  {
+    id: 'app-lancer',
+    type: 'project',
+    companyYear: 'Lancer Corporation. 2023',
+    title: 'App Lancer - Freelance Mobile App',
+    imageUrl: '/images/app-lancer-ui.jpg',
+    category: 'ui-ux',
+  },
+
+  // 2. Digital Marketing Group
+  {
+    id: 'details-action-marketing',
+    type: 'action',
+    actionText: 'See Details',
+    imageUrl: '/images/hero-laptop-work.jpg',
+    category: 'digital-marketing',
+  },
+  {
+    id: 'hyperion-seo',
+    type: 'project',
+    companyYear: 'Hyperion Media. 2024',
+    title: 'Hyperion - 300% Organic Traffic Surge',
+    imageUrl: '/images/portfolio-dribbble-shot.jpg',
+    category: 'digital-marketing',
+  },
+  {
+    id: 'basecamp-ads',
+    type: 'project',
+    companyYear: 'Basecamp Corp. 2023',
+    title: 'Basecamp - Omnichannel Paid Funnel',
+    imageUrl: '/images/ai-wave-app.jpg',
+    category: 'digital-marketing',
+  },
+
+  // 3. Branding Group
+  {
+    id: 'details-action-branding',
+    type: 'action',
+    actionText: 'See Details',
+    imageUrl: '/images/hero-creative-arch.jpg',
+    category: 'branding',
+  },
+  {
+    id: 'zenith-identity',
+    type: 'project',
+    companyYear: 'Zenith Corp. 2024',
+    title: 'Zenith - Visual Identity & Design System',
+    imageUrl: '/images/app-lancer-ui.jpg',
+    category: 'branding',
+  },
+  {
+    id: 'finflow-rebrand',
+    type: 'project',
+    companyYear: 'FinFlow Inc. 2023',
+    title: 'FinFlow - Global Modern Brand Elevation',
+    imageUrl: '/images/hero-laptop-work.jpg',
+    category: 'branding',
+  },
+];
+
+const CATEGORY_FIRST_INDEX: Record<string, number> = {
+  'all': 0,
+  'ui-ux': 0,
+  'digital-marketing': 3,
+  'branding': 6,
 };
 
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
@@ -119,15 +101,59 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState('ui-ux');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isProgrammaticScroll = useRef(false);
 
-  // Smoothly reset horizontal scroll position whenever tab changes
-  useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    const targetIndex = CATEGORY_FIRST_INDEX[tabId] ?? 0;
+    const targetCard = cardRefs.current[targetIndex];
+    const container = scrollContainerRef.current;
+
+    if (container) {
+      isProgrammaticScroll.current = true;
+      if (tabId === 'all' || targetIndex === 0) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (targetCard) {
+        const paddingOffset = window.innerWidth < 640 ? 24 : 64;
+        const targetLeft = targetCard.offsetLeft - paddingOffset;
+        container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+      }
+
+      setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 700);
     }
-  }, [activeTab]);
+  };
 
-  const currentItems = PORTFOLIO_DATA[activeTab] || PORTFOLIO_DATA['ui-ux'];
+  // Synchronize active tab pill with manual horizontal scrolling
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
+
+      const currentScrollLeft = container.scrollLeft;
+      const dmCard = cardRefs.current[CATEGORY_FIRST_INDEX['digital-marketing']];
+      const brandingCard = cardRefs.current[CATEGORY_FIRST_INDEX['branding']];
+
+      const thresholdOffset = window.innerWidth < 640 ? 120 : 260;
+
+      if (brandingCard && currentScrollLeft >= brandingCard.offsetLeft - thresholdOffset) {
+        setActiveTab('branding');
+      } else if (dmCard && currentScrollLeft >= dmCard.offsetLeft - thresholdOffset) {
+        setActiveTab('digital-marketing');
+      } else if (currentScrollLeft > 100) {
+        setActiveTab('ui-ux');
+      } else {
+        setActiveTab((prev) => (prev === 'all' ? 'all' : 'ui-ux'));
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
@@ -157,36 +183,34 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           {/* Filter Pills Frame 427321490 */}
           <PortfolioTabs
             activeTabId={activeTab}
-            onTabChange={setActiveTab}
+            onTabChange={handleTabChange}
           />
         </div>
 
-        {/* Frame 427320847: Portfolio Projects Row (54px gap, scrollable, starts at x:64px) */}
+        {/* Frame 427320847: Portfolio Projects Row (Continuous Horizontal Scroll Carousel) */}
         <div
           ref={scrollContainerRef}
           data-name="Frame 427320847"
           className="mt-14 sm:mt-16 lg:mt-[70px] w-full overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none scroll-smooth"
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full"
-            >
-              {currentItems.map((item) => (
+          <div className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full">
+            {ALL_PROJECTS.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className="shrink-0"
+              >
                 <PortfolioCard
-                  key={item.id}
                   item={{
                     ...item,
                     onActionClick: onSeeDetails,
                   }}
                 />
-              ))}
-            </motion.div>
-          </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
