@@ -106,14 +106,14 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M24 12L14.5 21.5L9.5 16.5L2 24"
+            d="M2 36L17 21L27 31L46 12"
             stroke="#a8d67b"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
-            d="M34 12H44V22"
+            d="M34 12H46V24"
             stroke="#a8d67b"
             strokeWidth="4"
             strokeLinecap="round"
