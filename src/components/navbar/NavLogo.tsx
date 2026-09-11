@@ -8,15 +8,9 @@ export const NavLogo: React.FC<NavLogoProps> = ({ className = '' }) => {
   return (
     <a href="/" className={`inline-flex items-center gap-2 select-none ${className}`}>
       {/* Exact shape geometry from pen.dev: 33x33 with [3px, 3px, 53px, 3px] corner radius */}
-      <div
-        className="relative w-[33px] h-[33px] bg-brand-lime flex items-center justify-center shrink-0"
-        style={{ borderRadius: '3px 3px 53px 3px' }}
-      >
+      <div className="relative w-[33px] h-[33px] bg-brand-lime rounded-[3px_3px_53px_3px] flex items-center justify-center shrink-0">
         {/* Inner square: 14x14 with [3px, 3px, 53px, 3px] corner radius */}
-        <div
-          className="w-[14px] h-[14px] bg-[#191f33]"
-          style={{ borderRadius: '3px 3px 53px 3px' }}
-        />
+        <div className="w-[14px] h-[14px] bg-[#191f33] rounded-[3px_3px_53px_3px]" />
       </div>
 
       {/* Brand Typography from pen.dev: Manrope 700, 24px, -1.2px tracking */}

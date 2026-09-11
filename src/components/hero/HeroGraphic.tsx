@@ -25,8 +25,7 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
         {/* Card A: 303x275px glass arch shape */}
         <div
           data-name="Rectangle 23805"
-          className="w-[303px] h-[275px] bg-[#000000]/20 rounded-tl-[1000px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[20px] border border-[#ffffff]/20 backdrop-blur-md shrink-0"
-          style={{ borderRadius: '1000px 20px 20px 20px' }}
+          className="w-[303px] h-[275px] bg-[#000000]/20 rounded-[1000px_20px_20px_20px] border border-[#ffffff]/20 backdrop-blur-md shrink-0"
         />
 
         {/* Card B: 259x281px stats card */}
@@ -59,7 +58,7 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
       {/* Card C: Dark Metrics Card (588x216px) */}
       <div
         data-name="Group 427320836"
-        className="w-[588px] h-[216px] flex items-end justify-between gap-6 py-8 px-[33px] bg-[#010205] rounded-[20px] shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_0px,_rgba(0,_0,_0,_0)_0px_0px_0px_0px,_rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] absolute top-[332px] left-0 z-10"
+        className="w-[588px] h-[216px] flex items-end justify-between gap-6 py-8 px-[33px] bg-[#010205] rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] absolute top-[332px] left-0 z-10"
       >
         {/* Left: Tag + Headline */}
         <div className="flex flex-col gap-8 max-w-[280px]">
@@ -95,7 +94,7 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
       {/* Floating Badge D: 108x108px Trending Up Circle */}
       <div
         data-name="Group 427320837"
-        className="flex items-center justify-center bg-[#010205] rounded-full shadow-[rgba(0,_0,_0,_0.44)_0px_30px_44.26px_-6.84px] h-[108px] w-[108px] absolute top-0 left-[155px] z-20"
+        className="flex items-center justify-center bg-[#010205] rounded-full shadow-[0px_30px_44px_-7px_rgba(0,0,0,0.44)] h-[108px] w-[108px] absolute top-0 left-[155px] z-20"
       >
         <svg
           data-name="trending-up"
