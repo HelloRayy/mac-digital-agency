@@ -78,28 +78,28 @@ export const FooterBrand: React.FC<FooterBrandProps> = ({ className = '' }) => {
         <a
           href="#facebook"
           aria-label="Facebook"
-          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5"
+          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5 transition-all duration-150 hover:bg-[#010205] hover:text-white hover:border-[#010205] active:scale-95 cursor-pointer"
         >
           <FacebookIcon className="w-4 h-4" />
         </a>
         <a
           href="#twitter"
           aria-label="Twitter"
-          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5"
+          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5 transition-all duration-150 hover:bg-[#010205] hover:text-white hover:border-[#010205] active:scale-95 cursor-pointer"
         >
           <TwitterIcon className="w-4 h-4" />
         </a>
         <a
           href="#linkedin"
           aria-label="LinkedIn"
-          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5"
+          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5 transition-all duration-150 hover:bg-[#010205] hover:text-white hover:border-[#010205] active:scale-95 cursor-pointer"
         >
           <LinkedinIcon className="w-4 h-4" />
         </a>
         <a
           href="#instagram"
           aria-label="Instagram"
-          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5"
+          className="w-[34px] h-[34px] rounded-full bg-white flex items-center justify-center text-[#192031] shadow-sm border border-black/5 transition-all duration-150 hover:bg-[#010205] hover:text-white hover:border-[#010205] active:scale-95 cursor-pointer"
         >
           <InstagramIcon className="w-4 h-4" />
         </a>

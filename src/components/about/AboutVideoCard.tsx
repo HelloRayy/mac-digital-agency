@@ -49,7 +49,7 @@ export const AboutVideoCard: React.FC<AboutVideoCardProps> = ({
         data-name="Group 427320837"
         onClick={onPlayClick}
         aria-label="Play video: How we work"
-        className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 lg:-bottom-8 lg:-right-8 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] bg-brand-lime rounded-full border-[8px] sm:border-[12px] border-[#fafafa] flex items-center justify-center shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)] cursor-pointer z-20 shrink-0"
+        className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 lg:-bottom-8 lg:-right-8 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] bg-brand-lime hover:bg-[#8eda43] rounded-full border-[8px] sm:border-[12px] border-[#fafafa] flex items-center justify-center shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)] cursor-pointer z-20 shrink-0 transition-all duration-200 hover:scale-105 active:scale-95 group/play"
       >
         {/* solar:play-bold vector icon with exact 1:1 pen.dev positioning */}
         <svg

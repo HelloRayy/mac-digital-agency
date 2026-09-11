@@ -42,7 +42,7 @@ export const FooterNav: React.FC<FooterNavProps> = ({ className = '' }) => {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="font-sans text-[14px] text-[#9b9b9c] tracking-[-0.28px]"
+                className="font-sans text-[14px] text-[#9b9b9c] tracking-[-0.28px] transition-colors duration-150 hover:text-[#010205]"
               >
                 {link.label}
               </a>
@@ -61,7 +61,7 @@ export const FooterNav: React.FC<FooterNavProps> = ({ className = '' }) => {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="font-sans text-[14px] text-[#9b9b9c] tracking-[-0.28px]"
+                className="font-sans text-[14px] text-[#9b9b9c] tracking-[-0.28px] transition-colors duration-150 hover:text-[#010205]"
               >
                 {link.label}
               </a>

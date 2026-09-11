@@ -33,12 +33,12 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
       <button
         type="button"
         onClick={onGetStarted}
-        className="h-[56px] px-8 rounded-[70px] bg-white flex items-center justify-center gap-6 sm:gap-[42px] shrink-0 text-[#010205] select-none"
+        className="group h-[56px] px-8 rounded-[70px] bg-white flex items-center justify-center gap-6 sm:gap-[42px] shrink-0 text-[#010205] select-none transition-all duration-200 hover:bg-brand-lime active:scale-[0.98] cursor-pointer"
       >
         <span className="font-sans font-bold text-[16px] tracking-[-0.32px] whitespace-nowrap">
           Get Started
         </span>
-        <ArrowRight className="w-6 h-6 stroke-[2]" />
+        <ArrowRight className="w-6 h-6 stroke-[2] transition-transform duration-200 group-hover:translate-x-1" />
       </button>
     </div>
   );

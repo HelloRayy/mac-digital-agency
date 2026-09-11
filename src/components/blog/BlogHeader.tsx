@@ -46,7 +46,7 @@ export const BlogHeader: React.FC<BlogHeaderProps> = ({
         <button
           type="button"
           onClick={onSeeMore}
-          className="w-[156px] h-[52px] rounded-[50px] border border-[#010205] flex items-center justify-center text-[#010205] font-sans font-bold text-[16px] tracking-[-0.32px] select-none"
+          className="w-[156px] h-[52px] rounded-[50px] border border-[#010205] flex items-center justify-center text-[#010205] font-sans font-bold text-[16px] tracking-[-0.32px] select-none transition-all duration-200 hover:bg-[#010205] hover:text-white active:scale-[0.98] cursor-pointer"
         >
           See more
         </button>
