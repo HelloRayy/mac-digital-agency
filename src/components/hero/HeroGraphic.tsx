@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CountUp } from '@/components/common/CountUp';
 
 interface HeroGraphicProps {
   className?: string;
@@ -49,12 +50,13 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
           className="w-[259px] h-[281px] flex flex-col justify-between p-[25px] bg-[#f0f0f0] rounded-[20px] shrink-0"
         >
           <div className="flex flex-col gap-[30px] pt-[13px] w-[209px]">
-            <span
-              data-name="230+"
+            <CountUp
+              to={230}
+              duration={1.8}
+              delay={0.4}
+              suffix="+"
               className="font-sans font-bold text-[84px] text-[#010205] leading-[1.0] tracking-[-2.52px]"
-            >
-              230+
-            </span>
+            />
             <p
               data-name="some big companies..."
               className="font-sans font-medium text-[16px] text-[#5c5d5f] leading-[1.4]"

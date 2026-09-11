@@ -1,4 +1,5 @@
 import React from 'react';
+import { CountUp } from '@/components/common/CountUp';
 
 interface AboutStatsCardProps {
   className?: string;
@@ -152,12 +153,13 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
       </div>
       {/* Frame 427321484: Stats Headline & Subtitle (gap 27px) */}
       <div data-name="Frame 427321484" className="relative z-10 flex flex-col gap-4 sm:gap-[27px]">
-        <span
-          data-name="920+"
+        <CountUp
+          to={920}
+          duration={2.0}
+          delay={0.2}
+          suffix="+"
           className="font-sans font-bold text-[64px] sm:text-[72px] lg:text-[84px] text-white leading-none tracking-[-2.52px]"
-        >
-          920+
-        </span>
+        />
         <p
           data-name="Project finish with superbly"
           className="font-sans font-medium text-[16px] sm:text-[19px] text-[#878c91] leading-[1.7]"
