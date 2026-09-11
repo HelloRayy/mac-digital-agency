@@ -29,7 +29,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className = '' }) => {
   return (
     <article
       data-name="Blog Card"
-      className={`w-full bg-white rounded-[20px] p-6 sm:p-8 flex flex-col justify-between gap-10 sm:gap-14 select-none transition-shadow hover:shadow-md ${className}`}
+      className={`w-full bg-white rounded-[20px] p-6 sm:p-8 flex flex-col justify-between gap-10 sm:gap-14 select-none ${className}`}
     >
       {/* Frame 427321497: Top meta + Title */}
       <div className="flex flex-col gap-6">
@@ -60,10 +60,10 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className = '' }) => {
           type="button"
           onClick={post.onReadMore}
           aria-label={`Read more about ${post.title}`}
-          className={`w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] flex items-center justify-center shrink-0 transition-all active:scale-95 cursor-pointer ${
+          className={`w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] flex items-center justify-center shrink-0 ${
             post.isActive
-              ? 'bg-[#010205] text-white hover:bg-black/90'
-              : 'border border-[#010205] text-[#010205] hover:bg-black/5'
+              ? 'bg-[#010205] text-white'
+              : 'border border-[#010205] text-[#010205]'
           }`}
         >
           <ArrowRight className="w-6 h-6 stroke-[2]" />

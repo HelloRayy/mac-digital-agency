@@ -31,20 +31,20 @@ export const FaqItem: React.FC<FaqItemProps> = ({
   return (
     <div
       data-name={isOpen ? 'faqOpen' : 'faqClose'}
-      className={`w-full transition-colors ${
+      className={`w-full ${
         isFirst ? 'border-t border-black' : ''
       } border-b border-black py-6 sm:py-[26px] px-2 sm:px-6`}
     >
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-6 sm:gap-12 text-left cursor-pointer group select-none"
+        className="w-full flex items-center justify-between gap-6 sm:gap-12 text-left cursor-pointer select-none"
         aria-expanded={isOpen}
       >
         <span className="text-[#010205] text-[18px] sm:text-[22px] lg:text-[24px] font-semibold leading-[1.4] sm:leading-[1.5] tracking-[-0.5px] sm:tracking-[-0.72px] max-w-[500px]">
           {item.question}
         </span>
-        <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 text-[#010205] group-hover:scale-110 transition-transform">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 text-[#010205]">
           {isOpen ? (
             <Minus className="w-6 h-6 stroke-[2]" />
           ) : (

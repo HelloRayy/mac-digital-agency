@@ -54,7 +54,7 @@ export const FaqHeader: React.FC<FaqHeaderProps> = ({
         <button
           type="button"
           onClick={onMoreQuestions}
-          className="w-[176px] h-[52px] rounded-[50px] border border-[#010205] flex items-center justify-center text-[#010205] font-sans font-bold text-[16px] tracking-[-0.32px] transition-colors hover:bg-black/5 active:scale-95 cursor-pointer select-none"
+          className="w-[176px] h-[52px] rounded-[50px] border border-[#010205] flex items-center justify-center text-[#010205] font-sans font-bold text-[16px] tracking-[-0.32px] select-none"
         >
           More Questions
         </button>
@@ -63,7 +63,7 @@ export const FaqHeader: React.FC<FaqHeaderProps> = ({
         <button
           type="button"
           onClick={onContactUs}
-          className="text-[#010205] font-sans font-semibold text-[16px] leading-[1.8] hover:underline underline-offset-4 cursor-pointer select-none"
+          className="text-[#010205] font-sans font-semibold text-[16px] leading-[1.8] select-none"
         >
           Contact Us
         </button>
