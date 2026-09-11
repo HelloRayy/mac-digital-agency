@@ -22,17 +22,17 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
     >
       {/* Top Row: Card A (Glass Arch) & Card B (Stats Card) */}
       <div className="flex items-start gap-6">
-        {/* Card A: 303x275px glass arch shape with creative director image */}
+        {/* Card A: 303x275px glass arch shape with laptop workspace image */}
         <div
           data-name="Rectangle 23805"
           className="relative w-[303px] h-[275px] rounded-[1000px_20px_20px_20px] overflow-hidden border border-[#ffffff]/30 shrink-0 shadow-lg bg-[#000000]/20"
         >
           <img
-            src="/images/hero-creative-arch.jpg"
-            alt="Creative Director"
-            className="w-full h-full object-cover object-top"
+            src="/images/hero-laptop-work.jpg"
+            alt="Agency Workspace and Analytics"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
         </div>
 
         {/* Card B: 259x281px stats card */}

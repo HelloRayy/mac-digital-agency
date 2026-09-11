@@ -26,13 +26,13 @@ export const AboutVideoCard: React.FC<AboutVideoCardProps> = ({
         data-name="Group 427320842"
         className="w-full h-full rounded-[30px] overflow-hidden relative bg-brand-dark flex items-center justify-center"
       >
-        {/* Background Image with Dark Overlay */}
+        {/* Background Image with Clean Modern Overlay */}
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?w=1200&auto=format&fit=crop&q=80"
           alt="How we work team collaboration"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
 
         {/* NObA5: Centered Headline "HOW WE WORK" */}
         <h3

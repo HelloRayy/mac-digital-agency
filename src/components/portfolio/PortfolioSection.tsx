@@ -19,16 +19,14 @@ const PORTFOLIO_ITEMS: ProjectItem[] = [
     type: 'project',
     companyYear: 'Ai Corporation. 2023',
     title: 'Ai Wave - Ai Chatbot Mobile App',
-    imageUrl:
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/images/ai-wave-app.jpg',
   },
   {
     id: 'app-lancer',
     type: 'project',
     companyYear: 'Lancer Corporation. 2023',
     title: 'App Lancer - Freelance Mobile App',
-    imageUrl:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80',
+    imageUrl: '/images/app-lancer-ui.jpg',
   },
 ];
 
