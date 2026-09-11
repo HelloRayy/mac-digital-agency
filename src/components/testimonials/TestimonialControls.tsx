@@ -36,7 +36,7 @@ export const TestimonialControls: React.FC<TestimonialControlsProps> = ({
         type="button"
         onClick={onPrev}
         aria-label="Previous testimonial"
-        className="w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] border border-[#010205] flex items-center justify-center text-[#010205]"
+        className="w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] border border-[#010205] flex items-center justify-center text-[#010205] transition-all duration-150 hover:bg-black/5 active:scale-[0.98] cursor-pointer"
       >
         <ArrowLeft className="w-6 h-6 stroke-[2]" />
       </button>
@@ -54,7 +54,7 @@ export const TestimonialControls: React.FC<TestimonialControlsProps> = ({
         type="button"
         onClick={onNext}
         aria-label="Next testimonial"
-        className="w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] bg-[#010205] flex items-center justify-center text-white"
+        className="w-[72px] sm:w-[88px] h-[52px] sm:h-[56px] rounded-[70px] bg-[#010205] flex items-center justify-center text-white transition-all duration-150 hover:bg-[#1a1d24] active:scale-[0.98] cursor-pointer"
       >
         <ArrowRight className="w-6 h-6 stroke-[2]" />
       </button>
