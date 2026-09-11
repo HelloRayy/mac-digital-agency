@@ -22,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-[80px] flex flex-col">
         {/* Upper 2-column layout: Balanced with 610px right box */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10 xl:gap-[48px]">
-          <HeroHeadline className="w-full lg:max-w-[590px]" />
+          <HeroHeadline />
           <HeroGraphic className="self-center lg:self-start" />
         </div>
 

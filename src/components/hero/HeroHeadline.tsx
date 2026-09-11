@@ -8,13 +8,9 @@ interface HeroHeadlineProps {
 
 /**
  * Frame 427321462 (heroLeft) - Cloned 1:1 from pen.dev node NihTH
- * Iteration 2: Validation of typography, exact letter-spacing, line-heights, and CTA paddings
- * - Frame 427321461: gap 32px
- *   - Headline: 72px, weight 600, leading-[1.1], tracking-[-2.16px], max-w-[700px]
- *   - Subtitle: 16px, weight 500, leading-[1.8], color #878c91, max-w-[557px]
- * - Frame 427321481: gap 56px
- *   - "Schedule Call": py-4 px-8, gap 42px, radius 70, weight 700, 16px -0.32px
- *   - "View Case Study": weight 600, 16px, leading-[1.8], color #010205
+ * Bounding Box Constraints:
+ * - Physical Box: 590px × 431px (Aspect Ratio: 1.37)
+ * - Display / Layout: flex, Align: normal, Justify: normal
  */
 export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
   className = '',
@@ -24,39 +20,39 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
   return (
     <div
       data-name="Frame 427321462"
-      className={`flex flex-col gap-[48px] max-w-[700px] ${className}`}
+      className={`flex flex-col gap-12 text-[#020407] text-base leading-normal w-full max-w-[590px] shrink-0 ${className}`}
     >
-      {/* Frame 427321461: Headline & Subtitle Container (gap: 32px) */}
-      <div className="flex flex-col gap-[32px]">
+      {/* Frame 427321461: Headline & Subtitle Container (gap-8 / 32px) */}
+      <div className="flex flex-col gap-8 leading-normal">
         <h1
           data-name="Stay ahead of the curve with our forward-thinking"
-          className="font-sans font-semibold text-[40px] sm:text-[54px] lg:text-[72px] text-[#010205] leading-[1.1] tracking-[-2.16px] max-w-[700px]"
+          className="text-[#010205] text-[40px] sm:text-[54px] lg:text-[72px] font-semibold leading-tight tracking-[-2.16px]"
         >
           Stay ahead of the curve with our forward-thinking
         </h1>
 
         <p
           data-name="An award-winning SEO agency..."
-          className="font-sans font-medium text-[16px] text-[#878c91] leading-[1.8] max-w-[557px]"
+          className="text-[#878c91] font-medium leading-relaxed max-w-[557px]"
         >
           An award-winning SEO agency with disciplines in digital marketing,
           design, and website development. focused on understanding you.
         </p>
       </div>
 
-      {/* Frame 427321481: CTAs row (gap: 56px) */}
+      {/* Frame 427321481: CTAs row (gap-14 / 56px, height: 55.98px) */}
       <div
         data-name="Frame 427321481"
-        className="flex flex-wrap items-center gap-[28px] sm:gap-[56px]"
+        className="flex flex-wrap items-center gap-14 h-[55.98px] leading-normal"
       >
-        {/* Frame 427320691: "Schedule Call" Button */}
+        {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px) */}
         <button
           type="button"
           data-name="Schedule Call Button"
           onClick={onScheduleCall}
-          className="inline-flex items-center justify-center gap-[42px] bg-[#010205] text-white py-[16px] px-[32px] rounded-[70px] cursor-pointer"
+          className="flex items-center justify-center gap-[42px] py-4 px-8 bg-[#010205] text-[#ffffff] text-center rounded-[70px] h-[55.98px] w-[231.59px] leading-normal cursor-pointer shrink-0"
         >
-          <span className="font-sans font-bold text-[16px] leading-[1.4] tracking-[-0.32px] text-white">
+          <span className="font-bold text-center leading-snug">
             Schedule Call
           </span>
 
@@ -69,6 +65,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
+            className="shrink-0"
           >
             <path
               d="M5 12H19"
@@ -87,12 +84,12 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
           </svg>
         </button>
 
-        {/* Text button: View Case Study */}
+        {/* Text button: View Case Study (height: 28.8px) */}
         <button
           type="button"
           data-name="View Case Study"
           onClick={onViewCaseStudy}
-          className="font-sans font-semibold text-[16px] text-[#010205] leading-[1.8] bg-transparent cursor-pointer"
+          className="text-[#010205] font-semibold text-center h-[28.8px] leading-relaxed bg-transparent cursor-pointer shrink-0"
         >
           View Case Study
         </button>
@@ -100,3 +97,5 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
     </div>
   );
 };
+
+export default HeroHeadline;
