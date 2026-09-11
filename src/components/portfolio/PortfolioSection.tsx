@@ -54,12 +54,12 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
       {/* Frame 427320835: Main Dark Container (1408px × 926px in pen.dev) */}
       <div
         data-name="Frame 427320835"
-        className="max-w-[1408px] mx-auto bg-[#020609] rounded-[30px] py-16 sm:py-20 px-4 sm:px-8 lg:px-16 flex flex-col items-center overflow-hidden"
+        className="max-w-[1408px] mx-auto bg-[#020609] rounded-[30px] py-16 sm:py-20 flex flex-col items-center overflow-hidden"
       >
         {/* Frame 427321487: Text & Button Group Container */}
         <div
           data-name="Frame 427321487"
-          className="flex flex-col items-center gap-10 sm:gap-[53px] w-full max-w-[1280px] text-center"
+          className="flex flex-col items-center gap-10 sm:gap-[53px] w-full max-w-[1280px] text-center px-4 sm:px-8 lg:px-16"
         >
           {/* Headline C0AD2 */}
           <h2
@@ -77,10 +77,10 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           />
         </div>
 
-        {/* Frame 427320847: Portfolio Projects Row (54px gap, scrollable) */}
+        {/* Frame 427320847: Portfolio Projects Row (54px gap, scrollable, starts at x:64px) */}
         <div
           data-name="Frame 427320847"
-          className="mt-14 sm:mt-16 lg:mt-[70px] w-full flex items-center gap-8 sm:gap-10 lg:gap-[54px] overflow-x-auto pb-6 scrollbar-none justify-start xl:justify-center"
+          className="mt-14 sm:mt-16 lg:mt-[70px] w-full flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none"
         >
           {PORTFOLIO_ITEMS.map((item) => (
             <PortfolioCard
