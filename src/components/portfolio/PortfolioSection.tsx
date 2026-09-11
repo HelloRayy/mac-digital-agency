@@ -208,7 +208,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         {/* Frame 427320847: Portfolio Projects Row (Continuous Horizontal Scroll Carousel) */}
         <div
           ref={scrollContainerRef}
-          data-lenis-prevent
           data-name="Frame 427320847"
           className="mt-14 sm:mt-16 lg:mt-[70px] w-full overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none scroll-smooth"
         >
