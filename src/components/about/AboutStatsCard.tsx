@@ -158,7 +158,7 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
           duration={2.0}
           delay={0.2}
           suffix="+"
-          className="font-sans font-bold text-[64px] sm:text-[72px] lg:text-[84px] text-white leading-none tracking-[-2.52px]"
+          className="font-sans font-bold text-[#ffffff] text-[64px] sm:text-[72px] lg:text-[84px] leading-tight tracking-[-2.52px] transition-all"
         />
         <p
           data-name="Project finish with superbly"

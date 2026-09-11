@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView, useMotionValue, useTransform, animate } from 'framer-motion';
 
 interface CountUpProps {
@@ -14,22 +14,19 @@ export const CountUp: React.FC<CountUpProps> = ({
   to,
   from = 0,
   duration = 1.8,
-  delay = 0.3,
+  delay = 0.2,
   suffix = '+',
   className = '',
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+  const [displayValue, setDisplayValue] = useState(from);
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    // Update textContent directly for 120fps performance without triggering React re-renders
-    const unsubscribe = rounded.on('change', (v) => {
-      node.textContent = `${v}${suffix}`;
+    const unsubscribe = rounded.on('change', (latest) => {
+      setDisplayValue(latest);
     });
 
     if (isInView) {
@@ -46,11 +43,11 @@ export const CountUp: React.FC<CountUpProps> = ({
     }
 
     return unsubscribe;
-  }, [isInView, count, rounded, to, duration, delay, suffix]);
+  }, [isInView, count, rounded, to, duration, delay]);
 
   return (
-    <span ref={ref} className={className}>
-      {from}
+    <span ref={ref} className={`inline-block tabular-nums ${className}`}>
+      {displayValue}
       {suffix}
     </span>
   );
