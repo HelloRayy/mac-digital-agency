@@ -59,7 +59,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
     <section
       id="faq"
       data-name="Frame 427321502"
-      className={`w-full bg-[#f3f3f3] p-2 sm:p-4 ${className}`}
+      className={`w-full bg-[#fafafa] py-4 sm:py-6 px-2 sm:px-4 ${className}`}
     >
       {/* Desktop - 16: Inner White Rounded Card */}
       <div

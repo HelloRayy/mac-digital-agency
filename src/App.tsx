@@ -5,6 +5,7 @@ import { AboutSection } from '@/components/about';
 import { PortfolioSection } from '@/components/portfolio';
 import { TestimonialsSection } from '@/components/testimonials';
 import { FaqSection } from '@/components/faq';
+import { BlogSection } from '@/components/blog';
 
 export const App: React.FC = () => {
   return (
@@ -28,6 +29,9 @@ export const App: React.FC = () => {
 
         {/* FAQ Section - Source of Truth: pen.dev node newIL (Frame 427321502) */}
         <FaqSection />
+
+        {/* Blog & Services Section - Source of Truth: pen.dev node kWLz3 (Desktop - 15) */}
+        <BlogSection />
       </main>
     </div>
   );
