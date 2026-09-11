@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PortfolioTabs } from './PortfolioTabs';
 import { PortfolioCard, ProjectItem } from './PortfolioCard';
 
@@ -7,42 +8,126 @@ interface PortfolioSectionProps {
   onSeeDetails?: () => void;
 }
 
-const PORTFOLIO_ITEMS: ProjectItem[] = [
-  {
-    id: 'details-action',
-    type: 'action',
-    actionText: 'See Details',
-    imageUrl: '/images/portfolio-dribbble-shot.jpg',
-  },
-  {
-    id: 'ai-wave',
-    type: 'project',
-    companyYear: 'Ai Corporation. 2023',
-    title: 'Ai Wave - Ai Chatbot Mobile App',
-    imageUrl: '/images/ai-wave-app.jpg',
-  },
-  {
-    id: 'app-lancer',
-    type: 'project',
-    companyYear: 'Lancer Corporation. 2023',
-    title: 'App Lancer - Freelance Mobile App',
-    imageUrl: '/images/app-lancer-ui.jpg',
-  },
-];
+const PORTFOLIO_DATA: Record<string, ProjectItem[]> = {
+  'all': [
+    {
+      id: 'details-action',
+      type: 'action',
+      actionText: 'See Details',
+      imageUrl: '/images/portfolio-dribbble-shot.jpg',
+    },
+    {
+      id: 'ai-wave',
+      type: 'project',
+      companyYear: 'Ai Corporation. 2023',
+      title: 'Ai Wave - Ai Chatbot Mobile App',
+      imageUrl: '/images/ai-wave-app.jpg',
+    },
+    {
+      id: 'app-lancer',
+      type: 'project',
+      companyYear: 'Lancer Corporation. 2023',
+      title: 'App Lancer - Freelance Mobile App',
+      imageUrl: '/images/app-lancer-ui.jpg',
+    },
+    {
+      id: 'finflow-growth',
+      type: 'project',
+      companyYear: 'FinFlow Corp. 2024',
+      title: 'FinFlow - Fintech Analytics Dashboard',
+      imageUrl: '/images/hero-laptop-work.jpg',
+    },
+    {
+      id: 'zenith-brand',
+      type: 'project',
+      companyYear: 'Zenith Studio. 2024',
+      title: 'Zenith - Creative Brand Architecture',
+      imageUrl: '/images/hero-creative-arch.jpg',
+    },
+  ],
+  'ui-ux': [
+    {
+      id: 'details-action',
+      type: 'action',
+      actionText: 'See Details',
+      imageUrl: '/images/portfolio-dribbble-shot.jpg',
+    },
+    {
+      id: 'ai-wave',
+      type: 'project',
+      companyYear: 'Ai Corporation. 2023',
+      title: 'Ai Wave - Ai Chatbot Mobile App',
+      imageUrl: '/images/ai-wave-app.jpg',
+    },
+    {
+      id: 'app-lancer',
+      type: 'project',
+      companyYear: 'Lancer Corporation. 2023',
+      title: 'App Lancer - Freelance Mobile App',
+      imageUrl: '/images/app-lancer-ui.jpg',
+    },
+  ],
+  'digital-marketing': [
+    {
+      id: 'details-action-marketing',
+      type: 'action',
+      actionText: 'See Details',
+      imageUrl: '/images/hero-laptop-work.jpg',
+    },
+    {
+      id: 'hyperion-seo',
+      type: 'project',
+      companyYear: 'Hyperion Media. 2024',
+      title: 'Hyperion - 300% Organic Traffic Surge',
+      imageUrl: '/images/portfolio-dribbble-shot.jpg',
+    },
+    {
+      id: 'basecamp-ads',
+      type: 'project',
+      companyYear: 'Basecamp Corp. 2023',
+      title: 'Basecamp - Omnichannel Paid Funnel',
+      imageUrl: '/images/ai-wave-app.jpg',
+    },
+  ],
+  'branding': [
+    {
+      id: 'details-action-branding',
+      type: 'action',
+      actionText: 'See Details',
+      imageUrl: '/images/hero-creative-arch.jpg',
+    },
+    {
+      id: 'zenith-identity',
+      type: 'project',
+      companyYear: 'Zenith Corp. 2024',
+      title: 'Zenith - Visual Identity & Design System',
+      imageUrl: '/images/app-lancer-ui.jpg',
+    },
+    {
+      id: 'finflow-rebrand',
+      type: 'project',
+      companyYear: 'FinFlow Inc. 2023',
+      title: 'FinFlow - Global Modern Brand Elevation',
+      imageUrl: '/images/hero-laptop-work.jpg',
+    },
+  ],
+};
 
-/**
- * Section Desktop - 10 - Cloned 1:1 from pen.dev canvas node V0W9G
- * - Container: max-w-[1440px] px-2 sm:px-4 py-4
- * - Inner Dark Card (Frame 427320835): bg-[#020609] rounded-[30px]
- * - Headline (C0AD2): 48px font-semibold, 1280px max-width, center aligned
- * - Tabs (Frame 427321490): 4 filter pills
- * - Cards row (Frame 427320847): 54px gap, horizontal scroll with 460px cards
- */
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   className = '',
   onSeeDetails,
 }) => {
   const [activeTab, setActiveTab] = useState('ui-ux');
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Smoothly reset horizontal scroll position whenever tab changes
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  }, [activeTab]);
+
+  const currentItems = PORTFOLIO_DATA[activeTab] || PORTFOLIO_DATA['ui-ux'];
 
   return (
     <section
@@ -78,18 +163,30 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
         {/* Frame 427320847: Portfolio Projects Row (54px gap, scrollable, starts at x:64px) */}
         <div
+          ref={scrollContainerRef}
           data-name="Frame 427320847"
-          className="mt-14 sm:mt-16 lg:mt-[70px] w-full flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none"
+          className="mt-14 sm:mt-16 lg:mt-[70px] w-full overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none scroll-smooth"
         >
-          {PORTFOLIO_ITEMS.map((item) => (
-            <PortfolioCard
-              key={item.id}
-              item={{
-                ...item,
-                onActionClick: onSeeDetails,
-              }}
-            />
-          ))}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full"
+            >
+              {currentItems.map((item) => (
+                <PortfolioCard
+                  key={item.id}
+                  item={{
+                    ...item,
+                    onActionClick: onSeeDetails,
+                  }}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

@@ -42,7 +42,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, className = 
         <button
           type="button"
           onClick={item.onActionClick}
-          className="relative z-10 w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] rounded-full bg-brand-lime flex items-center justify-center text-black font-sans font-bold text-[15px] sm:text-[18px] tracking-[-0.54px] cursor-pointer shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)]"
+          className="relative z-10 w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] rounded-full bg-brand-lime flex items-center justify-center text-black font-sans font-bold text-[15px] sm:text-[18px] tracking-[-0.54px] cursor-pointer shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)] transition-all duration-150 hover:bg-[#8eda43] active:scale-[0.98]"
         >
           {item.actionText || 'See Details'}
         </button>
