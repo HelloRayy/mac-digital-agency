@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '@/components/navbar';
 import { HeroSection } from '@/components/hero';
+import { AboutSection } from '@/components/about';
 
 export const App: React.FC = () => {
   return (
@@ -8,9 +9,13 @@ export const App: React.FC = () => {
       {/* Sliced Navbar - Source of Truth: pen.dev node vijxI */}
       <Navbar />
 
-      {/* Sliced Hero Section - Source of Truth: pen.dev node w8YfR (Frame 427321782) */}
+      {/* Sliced Sections */}
       <main>
+        {/* Hero Section - Source of Truth: pen.dev node w8YfR (Desktop - 12) */}
         <HeroSection />
+
+        {/* About Section - Source of Truth: pen.dev node tWqI8 (Desktop - 14) */}
+        <AboutSection />
       </main>
     </div>
   );
