@@ -16,6 +16,29 @@ interface AboutStatsCardProps {
  *   - 4 Ellipses: 70px × 70px, fill #c6c6c6, stroke #ffffff80 (2px outer border)
  *   - "+": 74px bold, Plus Jakarta Sans, -2.22px tracking, fill #ffffff
  */
+const STATS_AVATARS = [
+  {
+    id: 1,
+    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
+    alt: 'Client 1',
+  },
+  {
+    id: 2,
+    url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
+    alt: 'Client 2',
+  },
+  {
+    id: 3,
+    url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
+    alt: 'Client 3',
+  },
+  {
+    id: 4,
+    url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80',
+    alt: 'Client 4',
+  },
+];
+
 export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }) => {
   return (
     <div
@@ -38,15 +61,22 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
         </p>
       </div>
 
-      {/* Frame 427321491: 4 minimalist grey circles (70x70px, gap 7px) + plus */}
+      {/* Frame 427321491: 4 client avatar circles (70x70px, gap 7px) + plus */}
       <div data-name="Frame 427321491" className="flex items-center gap-[7px]">
-        {/* 4 Ellipses: 70x70px with #c6c6c6 fill and 2px border-white/50 */}
-        {[1, 2, 3, 4].map((num) => (
+        {/* 4 Ellipses: 70x70px with photo avatars and 2px border-white/50 */}
+        {STATS_AVATARS.map((avatar) => (
           <div
-            key={num}
-            data-name={`Ellipse ${num}`}
-            className="w-[54px] h-[54px] sm:w-[70px] sm:h-[70px] rounded-full bg-[#c6c6c6] border-2 border-white/50 shrink-0"
-          />
+            key={avatar.id}
+            data-name={`Ellipse ${avatar.id}`}
+            className="w-[54px] h-[54px] sm:w-[70px] sm:h-[70px] rounded-full overflow-hidden bg-[#2a2d34] border-2 border-white/50 shrink-0"
+          >
+            <img
+              src={avatar.url}
+              alt={avatar.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
         ))}
 
         {/* Plus Symbol: 74px bold Plus Jakarta Sans */}

@@ -12,6 +12,7 @@ const PORTFOLIO_ITEMS: ProjectItem[] = [
     id: 'details-action',
     type: 'action',
     actionText: 'See Details',
+    imageUrl: '/images/portfolio-dribbble-shot.jpg',
   },
   {
     id: 'ai-wave',

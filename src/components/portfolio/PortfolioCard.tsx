@@ -25,13 +25,24 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, className = 
     return (
       <div
         data-name="Group 427320846"
-        className={`w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] xl:w-[460px] xl:h-[460px] rounded-full bg-[#c3c3c3] border-[8px] xl:border-[11px] border-white/40 flex items-center justify-center shrink-0 select-none ${className}`}
+        className={`relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] xl:w-[460px] xl:h-[460px] rounded-full border-[8px] xl:border-[11px] border-white/40 flex items-center justify-center shrink-0 select-none overflow-hidden bg-[#2a2d34] ${className}`}
       >
+        {/* Background Showcase Image (Dribbble Shot 1) */}
+        {item.imageUrl && (
+          <img
+            src={item.imageUrl}
+            alt="Portfolio showcase preview"
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            loading="lazy"
+          />
+        )}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+
         {/* Group 427320844: Inner 163px Lime Button */}
         <button
           type="button"
           onClick={item.onActionClick}
-          className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] rounded-full bg-brand-lime flex items-center justify-center text-black font-sans font-bold text-[16px] sm:text-[18px] tracking-[-0.54px] cursor-pointer shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)]"
+          className="relative z-10 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] xl:w-[163px] xl:h-[163px] rounded-full bg-brand-lime flex items-center justify-center text-black font-sans font-bold text-[16px] sm:text-[18px] tracking-[-0.54px] cursor-pointer shadow-[0px_45px_66px_-10px_rgba(0,0,0,0.44)]"
         >
           {item.actionText || 'See Details'}
         </button>
