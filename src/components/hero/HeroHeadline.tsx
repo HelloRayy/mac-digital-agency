@@ -50,9 +50,9 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
           type="button"
           data-name="Schedule Call Button"
           onClick={onScheduleCall}
-          className="flex items-center justify-center gap-[42px] py-4 px-8 bg-[#010205] text-[#ffffff] text-center rounded-[70px] h-[55.98px] w-[231.59px] leading-normal cursor-pointer shrink-0"
+          className="flex items-center justify-center gap-[42px] py-4 px-8 bg-[#010205] text-[#ffffff] text-center rounded-[70px] h-[55.98px] min-w-[231.59px] leading-normal cursor-pointer shrink-0"
         >
-          <span className="font-bold text-center leading-snug">
+          <span className="text-[#ffffff] text-base font-bold text-center leading-snug whitespace-nowrap">
             Schedule Call
           </span>
 
@@ -89,7 +89,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
           type="button"
           data-name="View Case Study"
           onClick={onViewCaseStudy}
-          className="text-[#010205] font-semibold text-center h-[28.8px] leading-relaxed bg-transparent cursor-pointer shrink-0"
+          className="text-[#010205] font-semibold text-center h-[28.8px] leading-relaxed bg-transparent cursor-pointer shrink-0 whitespace-nowrap"
         >
           View Case Study
         </button>
