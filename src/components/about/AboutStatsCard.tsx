@@ -184,10 +184,10 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
           </div>
         ))}
 
-        {/* Plus Symbol: 74px bold Plus Jakarta Sans */}
+        {/* Plus Symbol: smaller size for clean balance with avatars */}
         <span
           data-name="+"
-          className="font-sans font-bold text-[38px] sm:text-[54px] lg:text-[74px] text-white leading-none tracking-[-2.22px] flex items-center justify-center shrink-0 ml-1 select-none"
+          className="font-sans font-bold text-[24px] sm:text-[30px] lg:text-[38px] text-white leading-none flex items-center justify-center shrink-0 ml-1.5 select-none"
         >
           +
         </span>
