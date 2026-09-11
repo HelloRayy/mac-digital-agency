@@ -54,7 +54,7 @@ export const PortfolioTabs: React.FC<PortfolioTabsProps> = ({
             key={tab.id}
             type="button"
             onClick={() => handleSelect(tab.id)}
-            className={`h-[50px] min-w-[180px] sm:min-w-[220px] xl:w-[236px] rounded-[50px] px-6 py-[13px] flex items-center justify-center text-[16px] font-bold tracking-[-0.32px] cursor-pointer select-none whitespace-nowrap ${
+            className={`h-[46px] sm:h-[50px] min-w-[130px] min-[390px]:min-w-[150px] sm:min-w-[200px] xl:w-[236px] rounded-[50px] px-3.5 sm:px-6 py-[10px] sm:py-[13px] flex items-center justify-center text-[13px] min-[390px]:text-[14px] sm:text-[16px] font-bold tracking-[-0.32px] cursor-pointer select-none whitespace-nowrap ${
               isActive
                 ? 'bg-brand-lime text-brand-dark'
                 : 'border border-white text-white bg-transparent'

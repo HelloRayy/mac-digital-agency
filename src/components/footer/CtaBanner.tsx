@@ -24,7 +24,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
       {/* Headline EGR1P */}
       <h2
         data-name="Ready to work with us ?"
-        className="text-white text-[38px] sm:text-[54px] lg:text-[72px] xl:text-[80px] font-semibold leading-[1.3] tracking-[-1.5px] lg:tracking-[-2.4px] font-sans text-center lg:text-left"
+        className="text-white text-[28px] min-[380px]:text-[36px] sm:text-[54px] lg:text-[72px] xl:text-[80px] font-semibold leading-[1.3] tracking-[-1.5px] lg:tracking-[-2.4px] font-sans text-center lg:text-left"
       >
         Ready to work with us ?
       </h2>

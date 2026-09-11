@@ -28,7 +28,7 @@ export const HeroBrands: React.FC<HeroBrandsProps> = ({ className = '' }) => {
       {/* Frame 427321493: 377px x 33px Box */}
       <div
         data-name="Frame 427321493"
-        className="flex flex-wrap items-center gap-[27.93px] text-brand-text text-base h-[33.3073px] leading-normal"
+        className="flex flex-wrap items-center gap-6 sm:gap-[27.93px] text-brand-text text-base min-h-[33.3px] sm:h-[33.3073px] leading-normal"
       >
         <AfterpayLogo />
         <BasecampLogo />

@@ -48,7 +48,7 @@ export const FaqHeader: React.FC<FaqHeaderProps> = ({
       {/* Frame 427321507: Button + Link Group */}
       <div
         data-name="Frame 427321507"
-        className="flex items-center gap-8 sm:gap-12 pt-2"
+        className="flex flex-wrap items-center gap-6 sm:gap-12 pt-2"
       >
         {/* Frame 427320691: Pill button */}
         <button

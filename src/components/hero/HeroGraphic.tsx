@@ -16,10 +16,11 @@ interface HeroGraphicProps {
  */
 export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
   return (
-    <div
-      data-name="HeroRight-PhysicalBox"
-      className={`relative w-[610px] h-[548px] text-[#020407] select-none shrink-0 ${className}`}
-    >
+    <div className={`w-full lg:w-auto flex justify-center lg:justify-start overflow-visible ${className}`}>
+      <div
+        data-name="HeroRight-PhysicalBox"
+        className="relative w-[610px] h-[548px] text-[#020407] select-none shrink-0 scale-[0.52] min-[390px]:scale-[0.58] min-[440px]:scale-[0.68] sm:scale-[0.8] md:scale-[0.9] lg:scale-100 origin-top lg:origin-top-left -mb-[260px] min-[390px]:-mb-[230px] min-[440px]:-mb-[175px] sm:-mb-[110px] md:-mb-[55px] lg:mb-0"
+      >
       {/* Top Row: Card A (Glass Arch) & Card B (Stats Card) */}
       <div className="flex items-start gap-6">
         {/* Card A: 303x275px glass arch shape with laptop workspace image */}
@@ -128,5 +129,6 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
         </svg>
       </div>
     </div>
+  </div>
   );
 };

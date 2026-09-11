@@ -43,32 +43,32 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
   return (
     <div
       data-name="Group 427320841"
-      className={`w-full max-w-[438px] lg:w-[438px] h-[382px] bg-[#010205] rounded-[30px] p-[40px] flex flex-col justify-between shrink-0 select-none ${className}`}
+      className={`w-full max-w-[438px] lg:w-[438px] h-auto min-h-[340px] sm:h-[382px] bg-[#010205] rounded-[30px] p-6 sm:p-8 lg:p-[40px] flex flex-col justify-between shrink-0 select-none ${className}`}
     >
       {/* Frame 427321484: Stats Headline & Subtitle (gap 27px) */}
-      <div data-name="Frame 427321484" className="flex flex-col gap-[27px]">
+      <div data-name="Frame 427321484" className="flex flex-col gap-4 sm:gap-[27px]">
         <span
           data-name="920+"
-          className="font-sans font-bold text-[72px] sm:text-[84px] text-white leading-none tracking-[-2.52px]"
+          className="font-sans font-bold text-[64px] sm:text-[72px] lg:text-[84px] text-white leading-none tracking-[-2.52px]"
         >
           920+
         </span>
         <p
           data-name="Project finish with superbly"
-          className="font-sans font-medium text-[19px] text-[#878c91] leading-[1.7]"
+          className="font-sans font-medium text-[16px] sm:text-[19px] text-[#878c91] leading-[1.7]"
         >
           Project finish with superbly
         </p>
       </div>
 
       {/* Frame 427321491: 4 client avatar circles (70x70px, gap 7px) + plus */}
-      <div data-name="Frame 427321491" className="flex items-center gap-[7px]">
-        {/* 4 Ellipses: 70x70px with photo avatars and 2px border-white/50 */}
+      <div data-name="Frame 427321491" className="flex items-center gap-1.5 sm:gap-[7px] pt-4 sm:pt-0">
+        {/* 4 Ellipses: 70x70px on desktop with photo avatars and 2px border-white/50 */}
         {STATS_AVATARS.map((avatar) => (
           <div
             key={avatar.id}
             data-name={`Ellipse ${avatar.id}`}
-            className="w-[54px] h-[54px] sm:w-[70px] sm:h-[70px] rounded-full overflow-hidden bg-[#2a2d34] border-2 border-white/50 shrink-0"
+            className="w-[46px] h-[46px] min-[400px]:w-[54px] min-[400px]:h-[54px] lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden bg-[#2a2d34] border-2 border-white/50 shrink-0"
           >
             <img
               src={avatar.url}
@@ -82,7 +82,7 @@ export const AboutStatsCard: React.FC<AboutStatsCardProps> = ({ className = '' }
         {/* Plus Symbol: 74px bold Plus Jakarta Sans */}
         <span
           data-name="+"
-          className="font-sans font-bold text-[54px] sm:text-[74px] text-white leading-none tracking-[-2.22px] flex items-center justify-center shrink-0 ml-1 select-none"
+          className="font-sans font-bold text-[38px] sm:text-[54px] lg:text-[74px] text-white leading-none tracking-[-2.22px] flex items-center justify-center shrink-0 ml-1 select-none"
         >
           +
         </span>
