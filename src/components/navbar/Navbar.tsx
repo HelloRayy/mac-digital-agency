@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLogo } from './NavLogo';
 import { NavLinks } from './NavLinks';
 import { NavActions } from './NavActions';
@@ -116,10 +116,29 @@ export const Navbar: React.FC<NavbarProps> = ({
   onGetStarted,
   onNotificationClick,
 }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={`w-full bg-white relative z-40 ${className}`}>
+    <header
+      className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 ${
+        isScrolled
+          ? 'shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border-b border-black/[0.04]'
+          : 'border-b border-transparent'
+      } ${className}`}
+    >
       <nav
-        className="max-w-[1440px] mx-auto w-full py-[24px] lg:py-[30px] px-6 md:px-12 lg:px-[80px] flex items-center justify-between"
+        className={`max-w-[1440px] mx-auto w-full px-6 md:px-12 lg:px-[80px] flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? 'py-4 lg:py-5' : 'py-[24px] lg:py-[30px]'
+        }`}
         aria-label="Main Navigation"
       >
         {/* Left Section: Logo + Desktop Navigation Links (pen.dev Frame 427321469: gap 74px) */}
