@@ -59,7 +59,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({
                   setOpenDropdown((prev) => (prev === item.label ? null : item.label));
                 }
               }}
-              className="inline-flex items-center gap-[7px] py-1 px-2.5 -mx-2.5 rounded-[8px] text-[14px] font-semibold text-brand-text leading-normal transition-all duration-150 hover:bg-black/5 active:scale-[0.98] select-none"
+              className="relative group inline-flex items-center gap-[7px] py-1 text-[14px] font-semibold text-brand-text/80 hover:text-[#010205] leading-normal transition-colors duration-200 active:scale-[0.98] select-none cursor-pointer"
             >
               <span>{item.label}</span>
               {item.hasDropdown && (
@@ -83,6 +83,8 @@ export const NavLinks: React.FC<NavLinksProps> = ({
                   />
                 </svg>
               )}
+              {/* Subtle animated underline indicator */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#010205] rounded-full transition-all duration-200 ease-out group-hover:w-full" />
             </a>
 
             {/* Dropdown Menu UI */}
