@@ -63,10 +63,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12 lg:gap-[60px]">
         {/* Frame 427321487: Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.35, margin: '0px 0px -100px 0px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <BlogHeader onSeeMore={onSeeMore} />
         </motion.div>
@@ -79,13 +79,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           {BLOG_POSTS.map((post, idx) => (
             <motion.div
               key={post.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{ once: true, amount: 0.25, margin: '0px 0px -100px 0px' }}
               transition={{
-                duration: 0.6,
-                delay: idx * 0.1,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.8,
+                delay: idx * 0.15,
+                ease: [0.16, 1, 0.3, 1],
               }}
             >
               <BlogCard

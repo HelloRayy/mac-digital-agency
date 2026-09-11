@@ -102,10 +102,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       {/* Frame 427321512: Main section container (1280px max-width, gap: 74px) */}
       <motion.div
         data-name="Frame 427321512"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, amount: 0.35, margin: '0px 0px -120px 0px' }}
+        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-[1280px] mx-auto flex flex-col gap-10 sm:gap-14 lg:gap-[74px]"
       >
         {/* Quote Top: Frame / Text PMYb9 with AnimatePresence */}

@@ -20,10 +20,10 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
   return (
     <motion.div
       data-name="Frame 427320835"
-      initial={{ opacity: 0, scale: 0.96, y: 20 }}
+      initial={{ opacity: 0, scale: 0.96, y: 30 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: 0.35, margin: '0px 0px -100px 0px' }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className={`w-full max-w-[1408px] mx-auto bg-[#020609] rounded-[30px] pt-12 sm:pt-16 lg:pt-[80px] pb-10 sm:pb-12 lg:pb-[51px] px-6 sm:px-12 lg:px-16 flex items-center justify-between flex-col lg:flex-row gap-8 lg:gap-12 select-none ${className}`}
     >
       {/* Headline EGR1P */}
