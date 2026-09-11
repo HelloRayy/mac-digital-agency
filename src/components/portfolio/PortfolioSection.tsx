@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
 import { PortfolioTabs } from './PortfolioTabs';
 import { PortfolioCard, ProjectItem } from './PortfolioCard';
 
@@ -9,11 +8,28 @@ interface PortfolioSectionProps {
 }
 
 interface CategorizedProjectItem extends ProjectItem {
-  category: 'ui-ux' | 'digital-marketing' | 'branding';
+  category: 'all' | 'ui-ux' | 'digital-marketing' | 'branding';
 }
 
 const ALL_PROJECTS: CategorizedProjectItem[] = [
-  // 1. UI/UX Design Group
+  // 0. All Work Flagship Showcase (Position 0 & 1)
+  {
+    id: 'details-action-all',
+    type: 'action',
+    actionText: 'See Details',
+    imageUrl: '/images/hero-creative-arch.jpg',
+    category: 'all',
+  },
+  {
+    id: 'all-work-flagship',
+    type: 'project',
+    companyYear: 'MAC Agency. 2024',
+    title: 'Omnichannel Digital Marketing & Global Brand Ecosystem',
+    imageUrl: '/images/hero-laptop-work.jpg',
+    category: 'all',
+  },
+
+  // 1. UI/UX Design Group (Position 2, 3, 4)
   {
     id: 'details-action-uiux',
     type: 'action',
@@ -38,7 +54,7 @@ const ALL_PROJECTS: CategorizedProjectItem[] = [
     category: 'ui-ux',
   },
 
-  // 2. Digital Marketing Group
+  // 2. Digital Marketing Group (Position 5, 6, 7)
   {
     id: 'details-action-marketing',
     type: 'action',
@@ -63,7 +79,7 @@ const ALL_PROJECTS: CategorizedProjectItem[] = [
     category: 'digital-marketing',
   },
 
-  // 3. Branding Group
+  // 3. Branding Group (Position 8, 9, 10)
   {
     id: 'details-action-branding',
     type: 'action',
@@ -89,24 +105,73 @@ const ALL_PROJECTS: CategorizedProjectItem[] = [
   },
 ];
 
+const CATEGORY_FIRST_INDEX: Record<string, number> = {
+  'all': 0,
+  'ui-ux': 2,
+  'digital-marketing': 5,
+  'branding': 8,
+};
+
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   className = '',
   onSeeDetails,
 }) => {
   const [activeTab, setActiveTab] = useState('all');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const displayedProjects =
-    activeTab === 'all'
-      ? ALL_PROJECTS
-      : ALL_PROJECTS.filter((item) => item.category === activeTab);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isProgrammaticScroll = useRef(false);
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    const targetIndex = CATEGORY_FIRST_INDEX[tabId] ?? 0;
+    const targetCard = cardRefs.current[targetIndex];
+    const container = scrollContainerRef.current;
+
+    if (container) {
+      isProgrammaticScroll.current = true;
+      if (tabId === 'all' || targetIndex === 0) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (targetCard) {
+        const paddingOffset = window.innerWidth < 640 ? 24 : 64;
+        const targetLeft = targetCard.offsetLeft - paddingOffset;
+        container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+      }
+
+      setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 700);
     }
   };
+
+  // Synchronize active tab pill with manual horizontal scrolling
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
+
+      const currentScrollLeft = container.scrollLeft;
+      const uiuxCard = cardRefs.current[CATEGORY_FIRST_INDEX['ui-ux']];
+      const dmCard = cardRefs.current[CATEGORY_FIRST_INDEX['digital-marketing']];
+      const brandingCard = cardRefs.current[CATEGORY_FIRST_INDEX['branding']];
+
+      const thresholdOffset = window.innerWidth < 640 ? 100 : 220;
+
+      if (brandingCard && currentScrollLeft >= brandingCard.offsetLeft - thresholdOffset) {
+        setActiveTab('branding');
+      } else if (dmCard && currentScrollLeft >= dmCard.offsetLeft - thresholdOffset) {
+        setActiveTab('digital-marketing');
+      } else if (uiuxCard && currentScrollLeft >= uiuxCard.offsetLeft - thresholdOffset) {
+        setActiveTab('ui-ux');
+      } else {
+        setActiveTab('all');
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
@@ -146,15 +211,15 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           data-name="Frame 427320847"
           className="mt-14 sm:mt-16 lg:mt-[70px] w-full overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none scroll-smooth"
         >
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full"
-          >
-            {displayedProjects.map((item) => (
-              <div key={item.id} className="shrink-0">
+          <div className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full">
+            {ALL_PROJECTS.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className="shrink-0"
+              >
                 <PortfolioCard
                   item={{
                     ...item,
@@ -163,7 +228,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 />
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
