@@ -12,11 +12,95 @@ interface NavbarProps {
   onNotificationClick?: () => void;
 }
 
-const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: 'Service', href: '#service', hasDropdown: true },
-  { label: 'Agency', href: '#agency', hasDropdown: true },
-  { label: 'Case study', href: '#case-study', hasDropdown: true },
-  { label: 'Resources', href: '#resources', hasDropdown: true },
+export const DEFAULT_NAV_ITEMS: NavItem[] = [
+  {
+    label: 'Service',
+    href: '#service',
+    hasDropdown: true,
+    dropdownItems: [
+      {
+        title: 'Search Engine Optimization',
+        desc: 'Keyword ranking & organic traffic scaling',
+        href: '#service',
+      },
+      {
+        title: 'PPC & Digital Advertising',
+        desc: 'High-converting paid search & social ads',
+        href: '#service',
+      },
+      {
+        title: 'Content Strategy & Marketing',
+        desc: 'Authoritative branding & audience engagement',
+        href: '#service',
+      },
+      {
+        title: 'UI/UX & Web Performance',
+        desc: 'Custom web solutions optimized for CRO',
+        href: '#service',
+      },
+    ],
+  },
+  {
+    label: 'Agency',
+    href: '#agency',
+    hasDropdown: true,
+    dropdownItems: [
+      {
+        title: 'Our Story & Philosophy',
+        desc: 'Data-driven squad for scaling brands',
+        href: '#agency',
+      },
+      {
+        title: 'Leadership & Team',
+        desc: 'Meet our creative & marketing specialists',
+        href: '#agency',
+      },
+      {
+        title: 'Global Partnerships',
+        desc: 'Trusted by world-class modern enterprises',
+        href: '#agency',
+      },
+    ],
+  },
+  {
+    label: 'Case study',
+    href: '#case-study',
+    hasDropdown: true,
+    dropdownItems: [
+      {
+        title: 'Basecamp Corp Growth',
+        desc: '4x user acquisition scaling story',
+        href: '#case-study',
+      },
+      {
+        title: 'AiWave Platform',
+        desc: '50% customer acquisition cost reduction',
+        href: '#case-study',
+      },
+      {
+        title: 'FinFlow SaaS Transformation',
+        desc: 'Full-funnel redesign & revenue momentum',
+        href: '#case-study',
+      },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '#resources',
+    hasDropdown: true,
+    dropdownItems: [
+      {
+        title: 'Marketing Insights Blog',
+        desc: 'Latest trends, playbook guides & analyses',
+        href: '#blog',
+      },
+      {
+        title: 'Digital Marketing FAQs',
+        desc: 'Frequently asked questions answered',
+        href: '#faq',
+      },
+    ],
+  },
   { label: 'Contact', href: '#contact', hasDropdown: false },
 ];
 

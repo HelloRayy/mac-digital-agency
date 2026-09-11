@@ -1,53 +1,122 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavItem } from './types';
+import { DEFAULT_NAV_ITEMS } from './Navbar';
 
 interface NavLinksProps {
   items?: NavItem[];
   className?: string;
 }
 
-const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: 'Service', href: '#service', hasDropdown: true },
-  { label: 'Agency', href: '#agency', hasDropdown: true },
-  { label: 'Case study', href: '#case-study', hasDropdown: true },
-  { label: 'Resources', href: '#resources', hasDropdown: true },
-  { label: 'Contact', href: '#contact', hasDropdown: false },
-];
-
 export const NavLinks: React.FC<NavLinksProps> = ({
   items = DEFAULT_NAV_ITEMS,
   className = '',
 }) => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const containerRef = useRef<HTMLUListElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <ul className={`flex items-center gap-[33px] ${className}`}>
-      {items.map((item) => (
-        <li key={item.label} className="relative">
-          <a
-            href={item.href}
-            className="inline-flex items-center gap-[7px] text-[14px] font-semibold text-brand-text py-1"
+    <ul ref={containerRef} className={`flex items-center gap-[33px] ${className}`}>
+      {items.map((item) => {
+        const isOpen = openDropdown === item.label;
+
+        return (
+          <li
+            key={item.label}
+            className="relative"
+            onMouseEnter={() => {
+              if (item.hasDropdown && item.dropdownItems) {
+                setOpenDropdown(item.label);
+              }
+            }}
+            onMouseLeave={() => {
+              if (item.hasDropdown) {
+                setOpenDropdown(null);
+              }
+            }}
           >
-            <span>{item.label}</span>
-            {item.hasDropdown && (
-              <svg
-                width="10"
-                height="5"
-                viewBox="0 0 10 5"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 0.75L5 4.25L9 0.75"
-                  stroke="#000000"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <a
+              href={item.href}
+              onClick={(e) => {
+                if (item.hasDropdown && item.dropdownItems) {
+                  e.preventDefault();
+                  setOpenDropdown((prev) => (prev === item.label ? null : item.label));
+                }
+              }}
+              className="inline-flex items-center gap-[7px] py-1 px-2.5 -mx-2.5 rounded-[8px] text-[14px] font-semibold text-brand-text leading-normal transition-all duration-150 hover:bg-black/5 active:scale-[0.98] select-none"
+            >
+              <span>{item.label}</span>
+              {item.hasDropdown && (
+                <svg
+                  width="10"
+                  height="5"
+                  viewBox="0 0 10 5"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  className={`transition-transform duration-200 ${
+                    isOpen ? 'rotate-180' : ''
+                  }`}
+                >
+                  <path
+                    d="M1 0.75L5 4.25L9 0.75"
+                    stroke="#000000"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </a>
+
+            {/* Dropdown Menu UI */}
+            {isOpen && item.dropdownItems && (
+              <>
+                {/* Invisible hover bridge to prevent cursor gap */}
+                <div className="absolute top-full left-0 w-full h-2" />
+
+                <div
+                  className="absolute top-full left-0 mt-2 w-[280px] bg-white rounded-[20px] shadow-[0_20px_45px_-10px_rgba(0,0,0,0.15)] border border-black/8 p-3 z-50 flex flex-col gap-1 select-none animate-fadeIn"
+                >
+                  {item.dropdownItems.map((subItem) => (
+                    <a
+                      key={subItem.title}
+                      href={subItem.href}
+                      onClick={() => setOpenDropdown(null)}
+                      className="group/sub flex flex-col gap-0.5 p-2.5 rounded-[12px] transition-all duration-150 hover:bg-[#fafafa] active:bg-[#f3f3f3]"
+                    >
+                      <span className="font-sans font-semibold text-[14px] text-[#010205] group-hover/sub:text-black">
+                        {subItem.title}
+                      </span>
+                      {subItem.desc && (
+                        <span className="font-sans text-[12px] text-[#878c91] leading-tight">
+                          {subItem.desc}
+                        </span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </>
             )}
-          </a>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ul>
   );
 };
