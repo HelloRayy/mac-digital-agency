@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/hero';
 import { AboutSection } from '@/components/about';
 import { PortfolioSection } from '@/components/portfolio';
 import { TestimonialsSection } from '@/components/testimonials';
+import { FaqSection } from '@/components/faq';
 
 export const App: React.FC = () => {
   return (
@@ -24,6 +25,9 @@ export const App: React.FC = () => {
 
         {/* Testimonials Section - Source of Truth: pen.dev node xkDqq (Desktop - 17) */}
         <TestimonialsSection />
+
+        {/* FAQ Section - Source of Truth: pen.dev node newIL (Frame 427321502) */}
+        <FaqSection />
       </main>
     </div>
   );
