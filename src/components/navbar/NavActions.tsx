@@ -2,6 +2,7 @@ import React from 'react';
 
 interface NavActionsProps {
   className?: string;
+  isScrolled?: boolean;
   onGetStarted?: () => void;
   onNotificationClick?: () => void;
 }
@@ -14,6 +15,7 @@ interface NavActionsProps {
  */
 export const NavActions: React.FC<NavActionsProps> = ({
   className = '',
+  isScrolled = false,
   onGetStarted,
   onNotificationClick,
 }) => {
@@ -27,11 +29,15 @@ export const NavActions: React.FC<NavActionsProps> = ({
         type="button"
         data-name="Frame 427320691"
         onClick={onGetStarted}
-        className="group w-[156px] h-[50px] rounded-[50px] border border-[#010205] bg-white py-[13px] px-[16px] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[#010205] active:scale-[0.98]"
+        className={`group rounded-[50px] border border-[#010205] bg-white flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#010205] active:scale-[0.98] ${
+          isScrolled
+            ? 'w-[140px] h-[42px] px-3.5 text-[15px]'
+            : 'w-[156px] h-[50px] px-[16px] py-[13px] text-[16px]'
+        }`}
       >
         <span
           data-name="Get started"
-          className="font-manrope font-bold text-[16px] text-[#010205] group-hover:text-white tracking-[-0.32px] leading-[1.4] transition-colors duration-200"
+          className="font-manrope font-bold text-[#010205] group-hover:text-white tracking-[-0.32px] leading-[1.4] transition-colors duration-200"
         >
           Get started
         </span>
@@ -43,7 +49,9 @@ export const NavActions: React.FC<NavActionsProps> = ({
         data-name="Frame 427320692"
         onClick={onNotificationClick}
         aria-label="Notifications"
-        className="w-[50px] h-[50px] rounded-[50px] bg-[#010205] flex items-center justify-center cursor-pointer transition-all duration-150 hover:bg-[#1a1d24] active:scale-[0.98]"
+        className={`rounded-[50px] bg-[#010205] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#1a1d24] active:scale-[0.98] ${
+          isScrolled ? 'w-[42px] h-[42px]' : 'w-[50px] h-[50px]'
+        }`}
       >
         {/* Exact bell vector geometry from pen.dev (node g7p4Bi: tf3aq & H9DvqJ) */}
         <svg

@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <nav
         className={`max-w-[1440px] mx-auto w-full px-6 md:px-12 lg:px-[80px] flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'py-4 lg:py-5' : 'py-[24px] lg:py-[30px]'
+          isScrolled ? 'py-2.5 lg:py-3' : 'py-[24px] lg:py-[30px]'
         }`}
         aria-label="Main Navigation"
       >
@@ -152,6 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Right Section: Action Buttons (pen.dev Frame 427320699: gap 9px) */}
         <div className="hidden lg:flex items-center">
           <NavActions
+            isScrolled={isScrolled}
             onGetStarted={onGetStarted}
             onNotificationClick={onNotificationClick}
           />
