@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '@/components/navbar';
 import { HeroSection } from '@/components/hero';
 import { AboutSection } from '@/components/about';
+import { PortfolioSection } from '@/components/portfolio';
 
 export const App: React.FC = () => {
   return (
@@ -16,6 +17,9 @@ export const App: React.FC = () => {
 
         {/* About Section - Source of Truth: pen.dev node tWqI8 (Desktop - 14) */}
         <AboutSection />
+
+        {/* Portfolio Section - Source of Truth: pen.dev node V0W9G (Desktop - 10) */}
+        <PortfolioSection />
       </main>
     </div>
   );
