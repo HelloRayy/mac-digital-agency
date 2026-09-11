@@ -19,7 +19,7 @@ export const TestimonialQuote: React.FC<TestimonialQuoteProps> = ({
   return (
     <blockquote
       data-name="Testimonial Quote"
-      className={`text-[#010205] text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.5] lg:leading-[1.6] tracking-[-0.72px] lg:tracking-[-1.08px] max-w-[1280px] select-none ${className}`}
+      className={`text-[#010205] text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.5] lg:leading-[1.6] tracking-[-0.72px] lg:tracking-[-1.08px] max-w-[1280px] min-h-[170px] sm:min-h-[190px] lg:min-h-[235px] flex items-start select-none ${className}`}
     >
       “ {quote} ”
     </blockquote>

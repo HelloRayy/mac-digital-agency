@@ -109,7 +109,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         {/* Bottom Row: Frame 427321511 */}
         <div
           data-name="Frame 427321511"
-          className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 sm:gap-6 pt-4 border-t border-black/5"
+          className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 sm:gap-6"
         >
           {/* Author info: Frame 427321510 */}
           <TestimonialAuthor

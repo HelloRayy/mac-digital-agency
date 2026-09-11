@@ -44,7 +44,7 @@ export const TestimonialAuthor: React.FC<TestimonialAuthorProps> = ({
       </div>
 
       {/* Frame 427321509: Name & Role */}
-      <div data-name="Frame 427321509" className="flex flex-col justify-center">
+      <div data-name="Frame 427321509" className="flex flex-col justify-center min-h-[58px]">
         <h3
           data-name="Author Name"
           className="text-[#010205] text-[18px] sm:text-[20px] font-bold leading-[1.8] font-sans"
