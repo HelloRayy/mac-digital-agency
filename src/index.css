@@ -4,8 +4,8 @@
 
 @layer base {
   body {
-    background-color: #010205;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #020407;
     overflow-x: hidden;
   }
 }
@@ -15,10 +15,10 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #010205;
+  background: #f3f3f3;
 }
 ::-webkit-scrollbar-thumb {
-  background: #192031;
+  background: #c3c3c3;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
