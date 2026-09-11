@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { BlogHeader } from './BlogHeader';
 import { BlogCard, BlogPostItem } from './BlogCard';
 
@@ -61,25 +62,43 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     >
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12 lg:gap-[60px]">
         {/* Frame 427321487: Header */}
-        <BlogHeader onSeeMore={onSeeMore} />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <BlogHeader onSeeMore={onSeeMore} />
+        </motion.div>
 
         {/* Frame 427321496: 3 Blog Cards Row */}
         <div
           data-name="Frame 427321496"
           className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {BLOG_POSTS.map((post) => (
-            <BlogCard
+          {BLOG_POSTS.map((post, idx) => (
+            <motion.div
               key={post.id}
-              post={{
-                ...post,
-                isActive: activeId === post.id,
-                onReadMore: () => {
-                  setActiveId((prev) => (prev === post.id ? null : post.id));
-                  onReadPost?.(post.id);
-                },
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.6,
+                delay: idx * 0.1,
+                ease: [0.22, 1, 0.36, 1],
               }}
-            />
+            >
+              <BlogCard
+                post={{
+                  ...post,
+                  isActive: activeId === post.id,
+                  onReadMore: () => {
+                    setActiveId((prev) => (prev === post.id ? null : post.id));
+                    onReadPost?.(post.id);
+                  },
+                }}
+              />
+            </motion.div>
           ))}
         </div>
       </div>

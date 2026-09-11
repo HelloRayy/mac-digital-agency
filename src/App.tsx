@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLenis } from '@/hooks/useLenis';
 import { Navbar } from '@/components/navbar';
 import { HeroSection } from '@/components/hero';
 import { AboutSection } from '@/components/about';
@@ -9,6 +10,8 @@ import { BlogSection } from '@/components/blog';
 import { FooterSection } from '@/components/footer';
 
 export const App: React.FC = () => {
+  useLenis();
+
   return (
     <div className="min-h-screen bg-white text-brand-text font-sans antialiased flex flex-col justify-between">
       {/* Sliced Navbar - Source of Truth: pen.dev node vijxI */}

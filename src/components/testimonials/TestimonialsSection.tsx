@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TestimonialQuote } from './TestimonialQuote';
 import { TestimonialAuthor } from './TestimonialAuthor';
 import { TestimonialControls } from './TestimonialControls';
@@ -99,24 +100,48 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       className={`w-full bg-[#fafafa] py-16 sm:py-20 lg:py-[115px] px-6 sm:px-12 lg:px-20 ${className}`}
     >
       {/* Frame 427321512: Main section container (1280px max-width, gap: 74px) */}
-      <div
+      <motion.div
         data-name="Frame 427321512"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-[1280px] mx-auto flex flex-col gap-10 sm:gap-14 lg:gap-[74px]"
       >
-        {/* Quote Top: Frame / Text PMYb9 */}
-        <TestimonialQuote quote={currentTestimonial.quote} />
+        {/* Quote Top: Frame / Text PMYb9 with AnimatePresence */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentTestimonial.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <TestimonialQuote quote={currentTestimonial.quote} />
+          </motion.div>
+        </AnimatePresence>
 
         {/* Bottom Row: Frame 427321511 */}
         <div
           data-name="Frame 427321511"
           className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 sm:gap-6"
         >
-          {/* Author info: Frame 427321510 */}
-          <TestimonialAuthor
-            name={currentTestimonial.authorName}
-            role={currentTestimonial.authorRole}
-            avatarUrl={currentTestimonial.avatarUrl}
-          />
+          {/* Author info: Frame 427321510 with AnimatePresence */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial.id}
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 15 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <TestimonialAuthor
+                name={currentTestimonial.authorName}
+                role={currentTestimonial.authorRole}
+                avatarUrl={currentTestimonial.avatarUrl}
+              />
+            </motion.div>
+          </AnimatePresence>
 
           {/* Carousel controls: Frame 427321508 */}
           <TestimonialControls
@@ -126,7 +151,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             onNext={handleNext}
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

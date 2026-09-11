@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface HeroGraphicProps {
   className?: string;
@@ -24,8 +25,11 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
       {/* Top Row: Card A (Glass Arch) & Card B (Stats Card) */}
       <div className="flex items-start gap-6">
         {/* Card A: 303x275px glass arch shape with laptop workspace image */}
-        <div
+        <motion.div
           data-name="Rectangle 23805"
+          initial={{ opacity: 0, scale: 0.92, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-[303px] h-[275px] rounded-[1000px_20px_20px_20px] overflow-hidden border border-[#ffffff]/30 shrink-0 shadow-lg bg-[#000000]/20"
         >
           <img
@@ -34,11 +38,14 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-        </div>
+        </motion.div>
 
         {/* Card B: 259x281px stats card */}
-        <div
+        <motion.div
           data-name="Group 427320838"
+          initial={{ opacity: 0, x: 25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="w-[259px] h-[281px] flex flex-col justify-between p-[25px] bg-[#f0f0f0] rounded-[20px] shrink-0"
         >
           <div className="flex flex-col gap-[30px] pt-[13px] w-[209px]">
@@ -58,14 +65,22 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
 
           {/* Progress bar: 211px total with 141px black active fill */}
           <div className="relative w-[211px] h-[7px] bg-[#d9d9d9] rounded-full overflow-hidden mb-1">
-            <div className="absolute top-0 left-0 w-[141px] h-full bg-[#000000] rounded-full" />
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 141 }}
+              transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute top-0 left-0 h-full bg-[#000000] rounded-full"
+            />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Card C: Dark Metrics Card (588x216px) */}
-      <div
+      <motion.div
         data-name="Group 427320836"
+        initial={{ opacity: 0, y: 35 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
         className="w-[588px] h-[216px] flex items-end justify-between gap-6 py-8 px-[33px] bg-[#010205] rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] absolute top-[332px] left-0 z-10"
       >
         {/* Left: Tag + Headline */}
@@ -82,26 +97,45 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
           </h3>
         </div>
 
-        {/* Right: 3 Lime Bar Chart Columns */}
+        {/* Right: 3 Lime Bar Chart Columns with animated scaleY */}
         <div className="flex items-end gap-2.5 w-[227px] shrink-0 self-end">
-          <div
+          <motion.div
             data-name="Rectangle 23807"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            style={{ originY: 1 }}
             className="bg-[#bae289] rounded-t-[2px] h-[95px] w-[69px]"
           />
-          <div
+          <motion.div
             data-name="Rectangle 23808"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ originY: 1 }}
             className="bg-[#99cf63] rounded-t-[2px] h-[136px] w-[69px]"
           />
-          <div
+          <motion.div
             data-name="Rectangle 23809"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            style={{ originY: 1 }}
             className="bg-[#77b248] rounded-t-[2px] h-[166px] w-[69px]"
           />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Floating Badge D: 108x108px Trending Up Circle */}
-      <div
+      {/* Floating Badge D: 108x108px Trending Up Circle with Ambient Float */}
+      <motion.div
         data-name="Group 427320837"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1, y: [-4, 4, -4] }}
+        transition={{
+          opacity: { duration: 0.5, delay: 0.5 },
+          scale: { duration: 0.5, delay: 0.5 },
+          y: { repeat: Infinity, duration: 3.5, ease: 'easeInOut' },
+        }}
         className="flex items-center justify-center bg-[#010205] rounded-full shadow-[0px_30px_44px_-7px_rgba(0,0,0,0.44)] h-[108px] w-[108px] absolute top-0 left-[155px] z-20"
       >
         <svg
@@ -127,7 +161,7 @@ export const HeroGraphic: React.FC<HeroGraphicProps> = ({ className = '' }) => {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </motion.div>
     </div>
   </div>
   );

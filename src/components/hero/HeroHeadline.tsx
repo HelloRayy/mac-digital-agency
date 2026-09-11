@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface HeroHeadlineProps {
   className?: string;
@@ -24,25 +25,34 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
     >
       {/* Frame 427321461: Headline & Subtitle Container (gap-8 / 32px) */}
       <div className="flex flex-col gap-8 leading-normal">
-        <h1
+        <motion.h1
           data-name="Stay ahead of the curve with our forward-thinking"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-[#010205] text-[40px] sm:text-[54px] lg:text-[72px] font-semibold leading-tight tracking-[-2.16px]"
         >
           Stay ahead of the curve with our forward-thinking
-        </h1>
+        </motion.h1>
 
-        <p
+        <motion.p
           data-name="An award-winning SEO agency..."
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="text-[#878c91] font-medium leading-relaxed max-w-[557px]"
         >
           An award-winning SEO agency with disciplines in digital marketing,
           design, and website development. focused on understanding you.
-        </p>
+        </motion.p>
       </div>
 
       {/* Frame 427321481: CTAs row */}
-      <div
+      <motion.div
         data-name="Frame 427321481"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="flex items-center gap-3 min-[380px]:gap-4 sm:gap-6 min-h-[48px] sm:h-[55.98px] leading-normal"
       >
         {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px on desktop) */}
@@ -119,7 +129,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
         >
           View Case Study
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 };
