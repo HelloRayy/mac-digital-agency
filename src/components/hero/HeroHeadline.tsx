@@ -40,10 +40,10 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
         </p>
       </div>
 
-      {/* Frame 427321481: CTAs row (gap-14 / 56px, height: 55.98px on desktop) */}
+      {/* Frame 427321481: CTAs row */}
       <div
         data-name="Frame 427321481"
-        className="flex items-center gap-3.5 min-[380px]:gap-5 sm:gap-14 min-h-[48px] sm:h-[55.98px] leading-normal"
+        className="flex items-center gap-3 min-[380px]:gap-4 sm:gap-6 min-h-[48px] sm:h-[55.98px] leading-normal"
       >
         {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px on desktop) */}
         <button
@@ -115,7 +115,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
           type="button"
           data-name="View Case Study"
           onClick={onViewCaseStudy}
-          className="text-[#010205] text-[14px] sm:text-base font-semibold text-center py-2 px-4 rounded-[50px] leading-relaxed bg-transparent cursor-pointer shrink-0 whitespace-nowrap transition-all duration-150 hover:bg-black/5 active:scale-[0.98]"
+          className="text-[#010205] text-[14px] sm:text-base font-semibold text-center py-2.5 sm:py-3.5 px-4 min-[380px]:px-5 sm:px-7 rounded-[50px] leading-normal bg-transparent cursor-pointer shrink-0 whitespace-nowrap transition-all duration-150 hover:bg-black/5 active:scale-[0.98]"
         >
           View Case Study
         </button>
