@@ -27,11 +27,11 @@ export const NavActions: React.FC<NavActionsProps> = ({
         type="button"
         data-name="Frame 427320691"
         onClick={onGetStarted}
-        className="w-[156px] h-[50px] rounded-[50px] bg-[#010205] py-[13px] px-[16px] flex items-center justify-center cursor-pointer transition-all duration-150 hover:bg-[#1a1d24] active:scale-[0.98]"
+        className="group w-[156px] h-[50px] rounded-[50px] border border-[#010205] bg-white py-[13px] px-[16px] flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[#010205] active:scale-[0.98]"
       >
         <span
           data-name="Get started"
-          className="font-manrope font-bold text-[16px] text-white tracking-[-0.32px] leading-[1.4] transition-all"
+          className="font-manrope font-bold text-[16px] text-[#010205] group-hover:text-white tracking-[-0.32px] leading-[1.4] transition-colors duration-200"
         >
           Get started
         </span>
