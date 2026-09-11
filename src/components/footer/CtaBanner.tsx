@@ -19,12 +19,12 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
   return (
     <div
       data-name="Frame 427320835"
-      className={`w-full max-w-[1408px] mx-auto bg-[#020609] rounded-[30px] py-16 sm:py-20 lg:py-[85px] px-8 sm:px-14 lg:px-[80px] flex items-center justify-between flex-col lg:flex-row gap-10 lg:gap-16 select-none ${className}`}
+      className={`w-full max-w-[1408px] mx-auto bg-[#020609] rounded-[30px] pt-12 sm:pt-16 lg:pt-[80px] pb-10 sm:pb-12 lg:pb-[51px] px-6 sm:px-12 lg:px-16 flex items-center justify-between flex-col lg:flex-row gap-8 lg:gap-12 select-none ${className}`}
     >
       {/* Headline EGR1P */}
       <h2
         data-name="Ready to work with us ?"
-        className="text-white text-[38px] sm:text-[54px] lg:text-[72px] xl:text-[80px] font-semibold leading-[1.2] lg:leading-[1.25] tracking-[-1.5px] lg:tracking-[-2.4px] font-sans text-center lg:text-left"
+        className="text-white text-[38px] sm:text-[54px] lg:text-[72px] xl:text-[80px] font-semibold leading-[1.3] tracking-[-1.5px] lg:tracking-[-2.4px] font-sans text-center lg:text-left"
       >
         Ready to work with us ?
       </h2>
@@ -33,9 +33,9 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
       <button
         type="button"
         onClick={onGetStarted}
-        className="h-[60px] sm:h-[64px] px-8 sm:px-10 rounded-[70px] bg-white flex items-center justify-center gap-6 sm:gap-10 shrink-0 text-[#010205] select-none"
+        className="h-[56px] px-8 rounded-[70px] bg-white flex items-center justify-center gap-6 sm:gap-[42px] shrink-0 text-[#010205] select-none"
       >
-        <span className="font-sans font-bold text-[16px] sm:text-[18px] tracking-[-0.32px] whitespace-nowrap">
+        <span className="font-sans font-bold text-[16px] tracking-[-0.32px] whitespace-nowrap">
           Get Started
         </span>
         <ArrowRight className="w-6 h-6 stroke-[2]" />
