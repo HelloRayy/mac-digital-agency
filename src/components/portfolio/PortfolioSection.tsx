@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { PortfolioTabs } from './PortfolioTabs';
 import { PortfolioCard, ProjectItem } from './PortfolioCard';
 
@@ -88,72 +89,24 @@ const ALL_PROJECTS: CategorizedProjectItem[] = [
   },
 ];
 
-const CATEGORY_FIRST_INDEX: Record<string, number> = {
-  'all': 0,
-  'ui-ux': 0,
-  'digital-marketing': 3,
-  'branding': 6,
-};
-
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   className = '',
   onSeeDetails,
 }) => {
-  const [activeTab, setActiveTab] = useState('ui-ux');
+  const [activeTab, setActiveTab] = useState('all');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const isProgrammaticScroll = useRef(false);
+
+  const displayedProjects =
+    activeTab === 'all'
+      ? ALL_PROJECTS
+      : ALL_PROJECTS.filter((item) => item.category === activeTab);
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    const targetIndex = CATEGORY_FIRST_INDEX[tabId] ?? 0;
-    const targetCard = cardRefs.current[targetIndex];
-    const container = scrollContainerRef.current;
-
-    if (container) {
-      isProgrammaticScroll.current = true;
-      if (tabId === 'all' || targetIndex === 0) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-      } else if (targetCard) {
-        const paddingOffset = window.innerWidth < 640 ? 24 : 64;
-        const targetLeft = targetCard.offsetLeft - paddingOffset;
-        container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
-      }
-
-      setTimeout(() => {
-        isProgrammaticScroll.current = false;
-      }, 700);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
   };
-
-  // Synchronize active tab pill with manual horizontal scrolling
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      if (isProgrammaticScroll.current) return;
-
-      const currentScrollLeft = container.scrollLeft;
-      const dmCard = cardRefs.current[CATEGORY_FIRST_INDEX['digital-marketing']];
-      const brandingCard = cardRefs.current[CATEGORY_FIRST_INDEX['branding']];
-
-      const thresholdOffset = window.innerWidth < 640 ? 120 : 260;
-
-      if (brandingCard && currentScrollLeft >= brandingCard.offsetLeft - thresholdOffset) {
-        setActiveTab('branding');
-      } else if (dmCard && currentScrollLeft >= dmCard.offsetLeft - thresholdOffset) {
-        setActiveTab('digital-marketing');
-      } else if (currentScrollLeft > 100) {
-        setActiveTab('ui-ux');
-      } else {
-        setActiveTab((prev) => (prev === 'all' ? 'all' : 'ui-ux'));
-      }
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section
@@ -193,15 +146,15 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           data-name="Frame 427320847"
           className="mt-14 sm:mt-16 lg:mt-[70px] w-full overflow-x-auto pb-6 px-6 sm:px-10 lg:px-16 scrollbar-none scroll-smooth"
         >
-          <div className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full">
-            {ALL_PROJECTS.map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                className="shrink-0"
-              >
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="flex items-center justify-start gap-8 sm:gap-10 lg:gap-[54px] w-max min-w-full"
+          >
+            {displayedProjects.map((item) => (
+              <div key={item.id} className="shrink-0">
                 <PortfolioCard
                   item={{
                     ...item,
@@ -210,7 +163,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

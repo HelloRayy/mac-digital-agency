@@ -22,7 +22,7 @@ interface PortfolioTabsProps {
 
 export const PortfolioTabs: React.FC<PortfolioTabsProps> = ({
   className = '',
-  activeTabId = 'ui-ux',
+  activeTabId = 'all',
   onTabChange,
 }) => {
   const [selectedTab, setSelectedTab] = useState(activeTabId);
