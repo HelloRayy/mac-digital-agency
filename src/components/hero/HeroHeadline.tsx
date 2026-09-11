@@ -43,7 +43,7 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
       {/* Frame 427321481: CTAs row (gap-14 / 56px, height: 55.98px on desktop) */}
       <div
         data-name="Frame 427321481"
-        className="flex flex-wrap items-center gap-6 sm:gap-14 min-h-[55.98px] sm:h-[55.98px] leading-normal"
+        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-14 min-h-[55.98px] sm:h-[55.98px] leading-normal"
       >
         {/* Frame 427320691: "Schedule Call" Button (231.59px × 55.98px) */}
         <button
