@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { TestimonialQuote } from './TestimonialQuote';
 import { TestimonialAuthor } from './TestimonialAuthor';
 import { TestimonialControls } from './TestimonialControls';
@@ -64,34 +64,43 @@ interface TestimonialsSectionProps {
   className?: string;
 }
 
-/**
- * Section Desktop - 17 - Cloned 1:1 from pen.dev canvas node xkDqq
- * - Container: max-w-[1440px] px-6 sm:px-12 lg:px-20 py-16 lg:py-[115px]
- * - Background: #fafafa
- * - Layout: vertical, gap: 74px (Frame 427321512)
- * - Quote: 36px font-semibold, leading-[1.6], letterSpacing: -1.08px
- * - Bottom Row: Frame 427321511 (justify-between items-center)
- * - Author: Frame 427321510 (70px circle, Michael Kaizer, CEO of Basecamp Corp)
- * - Controls: Frame 427321508 (Prev pill, 01/05, Next solid black pill)
- */
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   className = '',
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [[currentIndex, direction], setSlide] = useState([0, 1]);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? TESTIMONIALS_DATA.length - 1 : prev - 1
-    );
+    setSlide(([prev]) => [
+      prev === 0 ? TESTIMONIALS_DATA.length - 1 : prev - 1,
+      -1,
+    ]);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === TESTIMONIALS_DATA.length - 1 ? 0 : prev + 1
-    );
+    setSlide(([prev]) => [
+      prev === TESTIMONIALS_DATA.length - 1 ? 0 : prev + 1,
+      1,
+    ]);
   };
 
   const currentTestimonial = TESTIMONIALS_DATA[currentIndex];
+
+  const slideVariants: Variants = {
+    initial: (dir: number) => ({
+      opacity: 0,
+      y: dir > 0 ? 14 : -14,
+    }),
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+    },
+    exit: (dir: number) => ({
+      opacity: 0,
+      y: dir > 0 ? -14 : 14,
+      transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+    }),
+  };
 
   return (
     <section
@@ -109,13 +118,14 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         className="max-w-[1280px] mx-auto flex flex-col gap-10 sm:gap-14 lg:gap-[74px]"
       >
         {/* Quote Top: Frame / Text PMYb9 with AnimatePresence */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentTestimonial.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            custom={direction}
+            variants={slideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
             <TestimonialQuote quote={currentTestimonial.quote} />
           </motion.div>
@@ -126,14 +136,15 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           data-name="Frame 427321511"
           className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 sm:gap-6"
         >
-          {/* Author info: Frame 427321510 with AnimatePresence */}
-          <AnimatePresence mode="wait">
+          {/* Author info: Frame 427321510 with matching AnimatePresence */}
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentTestimonial.id}
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 15 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              custom={direction}
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
             >
               <TestimonialAuthor
                 name={currentTestimonial.authorName}
